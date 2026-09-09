@@ -67,11 +67,22 @@ Pendente para publicar:
 - [ ] Hospedagem definida
 - [ ] Conta do Mercado Pago
 
+## `CHECKLIST-ENTREGA.md`
+
+O roteiro de uma entrega, do clone à mensagem final. Cada linha aponta para uma
+das 25 promessas da landing (`[P01]`…`[P25]`), então não dá pra esquecer o que
+foi vendido.
+
+Marca também o que **vem pronto do clone** e o que é **trabalho por cliente** —
+é essa separação que faz a entrega caber numa tarde em vez de num dia.
+
+Os tempos são estimativa (somam ~3h50). Cronometre a primeira entrega real e
+corrija: a promessa de 4–6h só vale com número medido.
+
 ## Próximos passos
 
 1. Loja-mãe configurada (as 13 configurações, uma vez só)
 2. Tema filho: cores em variáveis + rodapé "Loja criada por Lojinha Pronta"
    fixo — é o motor de aquisição, não pode depender de alguém lembrar
 3. Briefing que desemboca no CSV
-4. Checklist de entrega cronometrado, derivado das 25 promessas
-5. Vídeos e manual (feitos uma vez, servem pra sempre)
+4. Vídeos e manual (feitos uma vez, servem pra sempre)
