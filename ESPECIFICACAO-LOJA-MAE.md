@@ -131,6 +131,25 @@ entregar, ou entrega sem receber.
 
 ---
 
+## Parte 2.11 — Rodapé do tema-pai
+
+O Twenty Twenty-Five traz o próprio rodapé escrito, e ele viaja para toda loja
+entregue.
+
+- [ ] **Aparência → Editor → Padrões → Partes de modelo → Rodapé**
+- [ ] Trocar **"Twenty Twenty-Five"** pelo nome do site
+- [ ] Remover **"Designed with WordPress"**
+- [ ] Salvar
+
+> Sem isso, a loja da sua cliente exibe no rodapé o nome de um tema que ela não
+> conhece. Não quebra nada, mas é a diferença entre loja feita e loja montada.
+>
+> O crédito "Loja criada por Lojinha Pronta" **não fica aqui** — ele é gerado
+> pelo tema, fora do rodapé editável, justamente para que nem a cliente nem você
+> apaguem sem querer.
+
+---
+
 ## Parte 3 — Páginas que já vêm prontas
 
 Escreva uma vez, com marcadores para trocar por cliente.
