@@ -67,6 +67,12 @@ Pendente para publicar:
 - [ ] Hospedagem definida
 - [ ] Conta do Mercado Pago
 
+## `ESPECIFICACAO-LOJA-MAE.md`
+
+Como montar a instalação-mestre: cinco plugins com a justificativa de cada um, o
+que **não** instalar e o que usar no lugar, e as configurações com valor exato
+campo a campo. Feito para ser executado como lista, sem decidir nada no caminho.
+
 ## `CHECKLIST-ENTREGA.md`
 
 O roteiro de uma entrega, do clone à mensagem final. Cada linha aponta para uma
@@ -81,8 +87,9 @@ corrija: a promessa de 4–6h só vale com número medido.
 
 ## Próximos passos
 
-1. Loja-mãe configurada (as 13 configurações, uma vez só)
-2. Tema filho: cores em variáveis + rodapé "Loja criada por Lojinha Pronta"
-   fixo — é o motor de aquisição, não pode depender de alguém lembrar
+1. Executar a especificação numa instalação WordPress
+2. Tema filho: cores em variáveis, botão de WhatsApp, snippet do Analytics e o
+   rodapé "Loja criada por Lojinha Pronta" fixo — é o motor de aquisição, não
+   pode depender de alguém lembrar
 3. Briefing que desemboca no CSV
 4. Vídeos e manual (feitos uma vez, servem pra sempre)
