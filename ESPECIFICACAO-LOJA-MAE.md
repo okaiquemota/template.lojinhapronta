@@ -287,16 +287,41 @@ duas páginas de exemplo para trás. Tudo isso viaja para a loja da cliente.
 | My account | **Minha conta** · `/minha-conta` |
 | Shop | **Loja** · `/loja` |
 
-- [ ] Excluir **"Sample Page"** e o post **"Hello world!"** (e esvaziar a lixeira)
-- [ ] Conferir em **WooCommerce → Configurações → Avançado** que as quatro
-      páginas continuam apontadas nos campos certos
-
+> **Trocar o título não troca o endereço.** O WordPress só gera o slug quando a
+> página nasce; renomear depois deixa `/cart` no ar com o nome "Carrinho". Abra
+> cada uma e edite o **Link permanente** no painel lateral.
+>
 > Pode renomear sem medo: o WooCommerce guarda essas páginas por **ID**, não por
-> nome nem por endereço. O passo de conferir no "Avançado" é só para dormir
-> tranquilo.
+> nome nem por endereço.
 >
 > Endereço em português também é o que a compradora espera ver quando desconfia
 > do link antes de pagar.
+
+**Duas páginas em rascunho que NÃO se exclui**
+
+O WordPress e o WooCommerce deixam duas páginas prontas em inglês. Renomeie
+agora e escreva o conteúdo na **Parte 3** — elas *são* as páginas de lá.
+
+| Vem como | Fica |
+| --- | --- |
+| Privacy Policy | **Política de privacidade** · `/politica-de-privacidade` |
+| Refund and Returns Policy | **Política de reembolso** · `/politica-de-reembolso` |
+
+- [ ] Manter as duas em **rascunho** até o texto estar em português
+- [ ] Conferir em **Configurações → Privacidade** que a de privacidade
+      continua sendo a página escolhida
+
+> Apagar e criar outra quebra o checkout em silêncio: o `[privacy_policy]` que
+> você colou em **2.7** resolve para a página marcada em Configurações →
+> Privacidade. Sem ela, a compradora vê um link para lugar nenhum na hora de
+> pagar.
+
+**Limpeza**
+
+- [ ] Excluir **"Sample Page"** e esvaziar a lixeira
+- [ ] Excluir o post **"Hello world!"** *(está em **Posts**, não em Páginas)*
+- [ ] Conferir em **WooCommerce → Configurações → Avançado** que as quatro
+      páginas do WooCommerce continuam apontadas nos campos certos
 
 ---
 
@@ -304,11 +329,13 @@ duas páginas de exemplo para trás. Tudo isso viaja para a loja da cliente.
 
 Escreva uma vez, com marcadores para trocar por cliente.
 
-- [ ] Política de privacidade (LGPD)
-- [ ] Termos de uso
-- [ ] Política de reembolso de produto digital
-- [ ] Sobre
-- [ ] Contato
+- [ ] Política de privacidade (LGPD) — **reescrever a página que já existe**
+- [ ] Política de reembolso de produto digital — **reescrever a que já existe**
+- [ ] Termos de uso — criar
+- [ ] Sobre — criar
+- [ ] Contato — criar
+- [ ] Publicar as duas que estavam em rascunho
+- [ ] Apontar "Termos e condições" em **WooCommerce → Configurações → Avançado**
 
 > Use marcadores literais tipo `[NOME_DA_LOJA]` e `[CPF_CNPJ]` no texto. Na
 > entrega é localizar e substituir — e fica óbvio se sobrou algum.
