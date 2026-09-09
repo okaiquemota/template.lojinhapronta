@@ -109,9 +109,17 @@ Sem estes seis, não comece — cada um vira uma ida e volta que estoura o prazo
 - [ ] `[P19]` ✍️ Link pronto para a bio do Instagram
 - [ ] `[P21]` ✍️ Google Analytics instalado com a conta do cliente
 - [ ] Loja liberada para indexação (tirar o "evitar mecanismos de busca")
+- [ ] **Modo "Coming soon" do WooCommerce desligado**
 
-> O WordPress instala com a indexação bloqueada. Esquecer isso deixa a loja
-> invisível no Google e o cliente só descobre meses depois.
+> Dois interruptores diferentes, os dois ligados de fábrica, os dois invisíveis
+> para quem está logado:
+>
+> - o WordPress instala pedindo aos buscadores que não indexem
+> - o WooCommerce liga o "Coming soon" no assistente inicial
+>
+> Você, logado como administrador, vê a loja normal nos dois casos. O visitante
+> vê "em breve" e o Google não vê nada. Confira **deslogado ou numa janela
+> anônima** antes de entregar.
 
 ## 10. Compra de teste · ~30 min
 
