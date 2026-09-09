@@ -63,7 +63,7 @@ Sem estes seis, não comece — cada um vira uma ida e volta que estoura o prazo
 - [ ] `[P03]` ✍️ Página inicial com os produtos em destaque
 - [ ] `[P04]` ✍️ Categorias criadas conforme o briefing
 - [ ] `[P05]` 🏭 Página de produto conferida (descrição, imagens, botão)
-- [ ] `[P07]` ✍️ Página "Sobre" com o texto do briefing
+- [ ] `[P07]` ✍️ Página "Sobre" com o texto do briefing — **ou despublicada**
 - [ ] `[P08]` ✍️ Página de contato com WhatsApp e formulário
 - [ ] `[P20]` 🏭 Botão de WhatsApp flutuante apontando para o número do cliente
 
@@ -103,7 +103,18 @@ Sem estes seis, não comece — cada um vira uma ida e volta que estoura o prazo
 
 - [ ] `[P15]` 🏭 Política de privacidade e termos com o nome e CNPJ/CPF do cliente
 - [ ] `[P16]` 🏭 Política de reembolso de produto digital
+- [ ] Substituir os **10 marcadores** das cinco páginas (`paginas/LEIA-ME.md`)
+- [ ] **Procurar por `[` no site inteiro** — se sobrou colchete, ele está no ar
 - [ ] Conferir que não sobrou nome de outro cliente nos textos
+- [ ] As cinco páginas linkadas no **rodapé**
+
+> A "Sobre" é a única que não se entrega com marcador nem com texto genérico.
+> Briefing preenchido, ela vai ao ar na voz da cliente; briefing vazio, ela sai
+> do ar. Loja sem página Sobre é normal — loja com Sobre escrita por robô
+> derruba a confiança que faz a compradora pagar.
+>
+> Página jurídica sem link no rodapé não existe na prática: a compradora não
+> acha, e o Procon considera que não foi informada.
 
 ## 9. Encontrabilidade · ~15 min
 

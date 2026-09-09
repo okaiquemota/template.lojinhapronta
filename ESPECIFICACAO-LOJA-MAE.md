@@ -187,6 +187,14 @@ Mantenha o `[privacy_policy]` — vira o link da página de privacidade.
 > Retenção em branco = guardar por tempo indeterminado. É o certo para loja
 > pequena: apagar pedido automaticamente é perder histórico de venda.
 
+### 2.7b WooCommerce → Configurações → Avançado
+
+- [ ] **Página de termos e condições**: **Termos de uso**
+      *(vem em branco — só dá para escolher depois da Parte 3)*
+
+> Com a página escolhida, o checkout passa a exibir "Li e concordo com os termos"
+> com link. Em branco, a página existe e ninguém chega nela na hora de pagar.
+
 ### 2.8 WooCommerce → Configurações → Pagamentos
 
 - [ ] Abrir **"Aceite pagamentos offline"** e conferir que **Transferência
@@ -278,7 +286,13 @@ entregue.
 - [ ] **Aparência → Editor → Padrões → Partes de modelo → Rodapé**
 - [ ] Trocar **"Twenty Twenty-Five"** pelo nome do site
 - [ ] Remover **"Designed with WordPress"**
+- [ ] **Linkar as cinco páginas da Parte 3** (Sobre, Contato, Termos de uso,
+      Política de privacidade, Política de reembolso)
 - [ ] Salvar
+
+> O link das páginas jurídicas é parte do mesmo passo de propósito: sem ele,
+> elas ficam publicadas e inalcançáveis. A compradora só as encontra pelo
+> rodapé, e é lá que o Procon espera achar.
 
 > Sem isso, a loja da sua cliente exibe no rodapé o nome de um tema que ela não
 > conhece. Não quebra nada, mas é a diferença entre loja feita e loja montada.
