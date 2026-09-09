@@ -99,10 +99,6 @@ economia, é o produto.
 - [ ] Separador decimal: **,** · Separador de milhar: **.** · Casas decimais: **2**
 - [ ] **Habilitar impostos: desmarcado**
 
-> Confira a moeda mesmo que o assistente já tenha perguntado o país: a prévia de
-> e-mail em **2.9** mostra `$ 50,00` quando isso sai errado, e aí a loja inteira
-> cobra em dólar.
-
 > Imposto desmarcado é decisão consciente: a cliente vende com CPF ou MEI e não
 > destaca tributo na nota. Ligar isso criaria um campo que ela não sabe preencher.
 
@@ -237,11 +233,12 @@ Mantenha o `[privacy_policy]` — vira o link da página de privacidade.
 **Antes de sair da aba**
 
 - [ ] Na **Prévia de e-mail**, escolher "Processando pedido" e conferir que o
-      valor aparece como **`R$ 50,00`**, não `$ 50,00`
+      cabeçalho está em português e que a cor do topo é a da marca, não roxa
 
-> A prévia usa a moeda real da loja. Se vier `$`, a moeda ficou errada no
-> assistente — volte em **2.5** e conserte antes de exportar. Uma loja-mãe
-> exportada em dólar cobra em dólar em toda cliente que receber o clone.
+> **Ignore o `$ 50,00` da prévia.** Ela usa um pedido fictício com formatação
+> própria e continua mostrando `$` mesmo com a loja em Real. Verificado: moeda
+> `BRL` em **2.5** e a prévia ainda exibia `$`. Não vá consertar moeda por causa
+> dela — o lugar de conferir moeda é a própria **2.5**.
 
 ### 2.10 FluentSMTP
 
