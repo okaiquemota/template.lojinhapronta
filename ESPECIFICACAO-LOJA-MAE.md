@@ -132,13 +132,41 @@ graça, ou entrega sem ter recebido.
 
 ### 2.7 WooCommerce → Configurações → Contas e privacidade
 
-- [ ] **Permitir compra como visitante** — marcado
-- [ ] **Permitir criação de conta durante a finalização** — marcado
-- [ ] **Criar conta automaticamente ao finalizar** — marcado
+- [ ] **Habilitar check-out de convidado** — marcado
+- [ ] Habilitar login durante a finalização — desmarcado
+- [ ] **Após a finalização da compra** — **marcar** *(vem desmarcado de fábrica)*
+- [ ] **Durante o checkout** — **desmarcar** *(vem marcado de fábrica)*
+- [ ] Na página "Minha conta" — desmarcado
+- [ ] **Enviar link de configuração de senha** — marcado
+- [ ] Traduzir os dois textos de **Política de privacidade** (vêm em inglês)
+- [ ] Retenção de dados pessoais: **tudo em branco**
 
-> Essa combinação entrega as duas promessas ao mesmo tempo: a compradora não
-> encontra barreira de cadastro, e mesmo assim ganha conta — que é a "área do
-> cliente para rebaixar o que já comprou".
+Textos para colar:
+
+> **Cadastro:** Seus dados pessoais serão usados para dar suporte à sua
+> experiência neste site, para gerenciar o acesso à sua conta e para outros fins
+> descritos em nossa [privacy_policy].
+>
+> **Finalização de compra:** Seus dados pessoais serão usados para processar seu
+> pedido, dar suporte à sua experiência neste site e para outros fins descritos
+> em nossa [privacy_policy].
+
+Mantenha o `[privacy_policy]` — vira o link da página de privacidade.
+
+> **Os dois padrões vêm errados para este produto.** De fábrica, a conta só é
+> criada se a compradora marcar uma caixinha no checkout — e a maioria não
+> marca. Sem conta não existe a área do cliente para rebaixar o arquivo, que é
+> uma das 25 promessas: ela paga, perde o PDF e liga para a sua cliente.
+>
+> Com "Após a finalização" marcado a conta nasce sozinha, e desmarcar "Durante o
+> checkout" tira um campo do formulário. Menos fricção, mesmo resultado.
+>
+> Os textos de privacidade em inglês aparecem para a **compradora**, no cadastro
+> e no checkout. Passam despercebidos porque ficam no fim de uma aba de
+> configuração.
+>
+> Retenção em branco = guardar por tempo indeterminado. É o certo para loja
+> pequena: apagar pedido automaticamente é perder histórico de venda.
 
 ### 2.8 WooCommerce → Configurações → Pagamentos
 
