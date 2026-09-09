@@ -2161,20 +2161,27 @@ body.woocommerce-page .wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp
   }
 
   function encaixar() {
-    const disponivel = janela.clientWidth;
-    const escala = Math.min(1, disponivel / largura);
-    let altura = 900;
-
-    try {
-      const doc = quadro.contentDocument;
-      if (doc && doc.body) altura = Math.max(doc.documentElement.scrollHeight, 600);
-    } catch (e) { /* ainda carregando */ }
-
+    // A largura entra primeiro e a altura só no quadro seguinte: medir antes
+    // do navegador refazer o layout devolve a altura da largura anterior, e a
+    // moldura fica com um vazio enorme ao trocar para o celular.
     quadro.style.width = largura + 'px';
-    quadro.style.height = altura + 'px';
-    quadro.style.transform = 'scale(' + escala + ')';
-    janela.style.height = Math.round(altura * escala) + 'px';
-    medida.textContent = largura + ' × ' + altura + ' px · ' + Math.round(escala * 100) + '%';
+    quadro.style.height = '0px';
+
+    requestAnimationFrame(() => {
+      let altura = 900;
+
+      try {
+        const doc = quadro.contentDocument;
+        if (doc && doc.body) altura = Math.max(doc.documentElement.scrollHeight, 600);
+      } catch (e) { /* ainda carregando */ }
+
+      const escala = Math.min(1, janela.clientWidth / largura);
+
+      quadro.style.height = altura + 'px';
+      quadro.style.transform = 'scale(' + escala + ')';
+      janela.style.height = Math.round(altura * escala) + 'px';
+      medida.textContent = largura + ' × ' + altura + ' px · ' + Math.round(escala * 100) + '%';
+    });
   }
 
   quadro.addEventListener('load', () => {
