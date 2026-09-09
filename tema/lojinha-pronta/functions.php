@@ -50,6 +50,14 @@ function lojinha_pronta_estilos() {
         ['twentytwentyfive-style', 'lojinha-pronta-fontes'],
         wp_get_theme()->get('Version')
     );
+
+    wp_enqueue_script(
+        'lojinha-pronta-vida',
+        get_stylesheet_directory_uri() . '/assets/vida.js',
+        [],
+        wp_get_theme()->get('Version'),
+        ['strategy' => 'defer', 'in_footer' => true]
+    );
 }
 
 /**
@@ -91,6 +99,23 @@ function lojinha_pronta_analytics() {
     <?php
 }
 add_action('wp_head', 'lojinha_pronta_analytics');
+
+/**
+ * Marca que o JavaScript está vivo, antes de qualquer coisa pintar.
+ *
+ * A animação de entrada esconde o conteúdo até o vida.js revelá-lo. Se o
+ * script falhar — erro, bloqueador, rede ruim no meio do carregamento — a loja
+ * ficaria em branco com os produtos invisíveis. Com esta linha, o esconde-e-
+ * revela só existe quando há JavaScript para desfazê-lo; sem ele a página
+ * aparece inteira, parada.
+ *
+ * Precisa ser inline e no wp_head: um arquivo separado chegaria depois da
+ * primeira pintura e a página piscaria.
+ */
+function lojinha_pronta_marca_js() {
+    echo '<script>document.documentElement.classList.add("lp-js");</script>' . "\n";
+}
+add_action('wp_head', 'lojinha_pronta_marca_js', 1);
 
 /**
  * Barra de aviso no topo.

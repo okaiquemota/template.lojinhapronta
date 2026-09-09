@@ -80,3 +80,23 @@ diz nada.
 Para trocar: muda a URL no `lojinha_pronta_estilos()` e os dois nomes em
 `settings.typography.fontFamilies` do `theme.json`.
 
+
+## Ver o tema sem WordPress
+
+```
+node ferramentas/previa/gerar.mjs
+```
+
+Monta uma página com a mesma marcação que o WordPress gera — inclusive o CSS
+que ele deriva do `theme.json` e os seletores de especificidade alta que já
+morderam este tema — carrega o `style.css` de verdade, preenche a vitrine com
+oito produtos de mentira e tira print em 1440px e 390px, mais recortes de cada
+faixa.
+
+Existe porque o jeito anterior era pedir print para o Kaique a cada linha de
+CSS. Vinte rodadas de baixar ZIP, copiar pasta e recarregar para descobrir
+coisas que um print local resolveria em segundos.
+
+O que ele **não** cobre: qualquer coisa que dependa do WordPress de verdade —
+o que o WooCommerce injeta, o que os plugins mudam, e as fontes do Google, que
+não carregam no ambiente onde o print é gerado. Continua valendo abrir a loja.

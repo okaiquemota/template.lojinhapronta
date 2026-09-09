@@ -7,7 +7,9 @@
  * `margin-left: auto` que centraliza o miolo.
  *
  * A página de teste imita o que o Twenty Twenty-Five gera em volta dos nossos
- * blocos. Não substitui olhar o site: pega regressão de CSS, não de WordPress.
+ * blocos, e mede caixas neutras — não títulos, que podem ter largura máxima
+ * própria de propósito. Não substitui olhar o site: pega regressão de CSS, não
+ * de WordPress.
  *
  *   node ferramentas/testar-alinhamento.mjs
  */
