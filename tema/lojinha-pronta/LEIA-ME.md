@@ -49,3 +49,34 @@ mais caro de uma loja.
 motor de aquisição do negócio: quem navega numa loja do nicho é o próximo
 cliente. Configuração no painel é coisa que se esquece de marcar; código viaja
 no clone.
+
+## Trocar a cara da loja por cliente
+
+Toda a aparência sai de **quatro cores no `theme.json`**. Não existe cor
+escrita à mão em nenhum outro lugar do tema.
+
+| slug | onde aparece |
+| --- | --- |
+| `lp-marca` | faixa da chamada, títulos, preço, número dos passos |
+| `lp-marca-escura` | rodapé e faixa do crédito |
+| `lp-destaque` | botões |
+| `lp-suave` | faixas claras, texto sobre o rodapé escuro |
+
+**A única regra:** `lp-marca` e `lp-marca-escura` precisam ser escuras o
+bastante para carregar texto branco por cima — contraste 4,5:1 ou mais. Se a
+cliente quer rosa, laranja ou amarelo, a cor vai no `lp-destaque`, que é fundo
+de botão e nunca fundo de faixa inteira.
+
+Errar isso não deixa o site feio: deixa ilegível, e só aparece depois de
+entregue.
+
+## As fontes
+
+Nunito nos títulos, Nunito Sans no texto, carregadas do Google Fonts no
+`functions.php`. Arredondadas e quentes, que é como material de professora se
+apresenta — o tema-pai vem com a fonte do sistema, que não erra e também não
+diz nada.
+
+Para trocar: muda a URL no `lojinha_pronta_estilos()` e os dois nomes em
+`settings.typography.fontFamilies` do `theme.json`.
+

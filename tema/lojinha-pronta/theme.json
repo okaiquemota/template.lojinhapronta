@@ -2,46 +2,57 @@
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
   "templateParts": [
-    {
-      "name": "header",
-      "title": "Cabeçalho",
-      "area": "header"
-    },
-    {
-      "name": "footer",
-      "title": "Rodapé",
-      "area": "footer"
-    }
+    { "name": "header", "title": "Cabeçalho", "area": "header" },
+    { "name": "footer", "title": "Rodapé", "area": "footer" }
   ],
   "settings": {
+    "layout": {
+      "contentSize": "820px",
+      "wideSize": "1180px"
+    },
     "color": {
       "palette": [
+        { "slug": "lp-marca", "color": "#124559", "name": "Cor da marca" },
+        { "slug": "lp-marca-escura", "color": "#0a2531", "name": "Marca escura" },
+        { "slug": "lp-destaque", "color": "#cf3f2b", "name": "Destaque" },
+        { "slug": "lp-suave", "color": "#f4f2ef", "name": "Fundo suave" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
         {
-          "slug": "lp-marca",
-          "color": "#124559",
-          "name": "Cor da marca"
+          "slug": "lp-titulo",
+          "name": "Títulos",
+          "fontFamily": "Nunito, ui-rounded, \"Segoe UI\", system-ui, sans-serif"
         },
         {
-          "slug": "lp-marca-escura",
-          "color": "#0a2531",
-          "name": "Marca escura"
-        },
-        {
-          "slug": "lp-destaque",
-          "color": "#cf3f2b",
-          "name": "Destaque"
-        },
-        {
-          "slug": "lp-suave",
-          "color": "#f4f2ef",
-          "name": "Fundo suave"
+          "slug": "lp-texto",
+          "name": "Texto",
+          "fontFamily": "\"Nunito Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif"
         }
       ]
     }
   },
   "styles": {
+    "typography": {
+      "fontFamily": "var:preset|font-family|lp-texto",
+      "fontSize": "1.0625rem",
+      "lineHeight": "1.65"
+    },
     "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|lp-titulo",
+          "fontWeight": "800",
+          "lineHeight": "1.2"
+        },
+        "color": { "text": "var:preset|color|lp-marca" }
+      },
       "button": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|lp-titulo",
+          "fontWeight": "700"
+        },
         "color": {
           "background": "var(--wp--preset--color--lp-destaque)",
           "text": "#ffffff"
@@ -54,9 +65,7 @@
         }
       },
       "link": {
-        "color": {
-          "text": "var(--wp--preset--color--lp-marca)"
-        }
+        "color": { "text": "var:preset|color|lp-marca" }
       }
     }
   }

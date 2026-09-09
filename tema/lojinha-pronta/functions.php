@@ -32,13 +32,38 @@ function lojinha_pronta_config($chave, $padrao = '') {
  * Carrega o CSS do tema filho depois do pai.
  */
 function lojinha_pronta_estilos() {
+    /*
+     * Nunito para título e Nunito Sans para texto: arredondadas e quentes, que
+     * é como material de professora se apresenta. O tema-pai vem com a fonte do
+     * sistema, que não erra e também não diz nada.
+     */
+    wp_enqueue_style(
+        'lojinha-pronta-fontes',
+        'https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap',
+        [],
+        null
+    );
+
     wp_enqueue_style(
         'lojinha-pronta',
         get_stylesheet_uri(),
-        ['twentytwentyfive-style'],
+        ['twentytwentyfive-style', 'lojinha-pronta-fontes'],
         wp_get_theme()->get('Version')
     );
 }
+
+/**
+ * Abre a conexão com o servidor de fontes antes do navegador precisar dela.
+ */
+function lojinha_pronta_preconnect($urls, $relation) {
+    if ($relation === 'preconnect') {
+        $urls[] = ['href' => 'https://fonts.googleapis.com'];
+        $urls[] = ['href' => 'https://fonts.gstatic.com', 'crossorigin' => ''];
+    }
+
+    return $urls;
+}
+add_filter('wp_resource_hints', 'lojinha_pronta_preconnect', 10, 2);
 add_action('wp_enqueue_scripts', 'lojinha_pronta_estilos');
 
 /**
@@ -124,7 +149,7 @@ function lojinha_pronta_css_rodape() {
 .lp-zap:hover,.lp-zap:focus-visible{transform:scale(1.08);color:#fff}
 .lp-credito{margin:0;padding:1.25rem 1rem;font-size:.8rem;line-height:1.5;
   display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;
-  background:var(--wp--preset--color--lp-suave,#f4f4f4)}
+  border-top:1px solid rgba(255,255,255,.12)}
 .lp-credito a{color:inherit;opacity:.75;text-decoration:none}
 .lp-credito a::before{content:"\00b7";margin-right:.75rem;opacity:.6}
 .lp-credito a:hover{opacity:1;text-decoration:underline}
