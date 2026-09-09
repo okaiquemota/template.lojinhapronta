@@ -92,7 +92,9 @@ Sem estes seis, não comece — cada um vira uma ida e volta que estoura o prazo
 - [ ] `[P17]` ✍️ E-mail profissional no domínio criado
 - [ ] SMTP configurado e **e-mail de teste recebido fora do spam**
 - [ ] `[P11]` E-mail de confirmação de compra chegando
-- [ ] Remetente com o nome da loja, não "WordPress"
+- [ ] Em **WooCommerce → Configurações → E-mails**: nome "De" = nome da loja
+      (vem `Loja` da mãe) e endereço "De" = o e-mail novo do domínio
+- [ ] ✍️ Logotipo da cliente enviado em **Modelo do e-mail** (largura 120)
 
 > Sem SMTP, o e-mail de confirmação some no spam e a promessa `[P11]` não existe
 > na prática. Não pule este passo por parecer invisível.

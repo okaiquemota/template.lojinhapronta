@@ -99,6 +99,10 @@ economia, é o produto.
 - [ ] Separador decimal: **,** · Separador de milhar: **.** · Casas decimais: **2**
 - [ ] **Habilitar impostos: desmarcado**
 
+> Confira a moeda mesmo que o assistente já tenha perguntado o país: a prévia de
+> e-mail em **2.9** mostra `$ 50,00` quando isso sai errado, e aí a loja inteira
+> cobra em dólar.
+
 > Imposto desmarcado é decisão consciente: a cliente vende com CPF ou MEI e não
 > destaca tributo na nota. Ligar isso criaria um campo que ela não sabe preencher.
 
@@ -170,17 +174,74 @@ Mantenha o `[privacy_policy]` — vira o link da página de privacidade.
 
 ### 2.8 WooCommerce → Configurações → Pagamentos
 
-- [ ] Desativar **Transferência bancária**, **Cheque** e **Pagamento na entrega**
+- [ ] Abrir **"Aceite pagamentos offline"** e conferir que **Transferência
+      bancária**, **Cheque** e **Pagamento na entrega** mostram o botão
+      **"Ativar"** — botão "Ativar" significa que o meio está **desligado**,
+      que é como deve ficar *(já vêm assim de fábrica)*
 - [ ] Ativar **Mercado Pago** (as credenciais são preenchidas por cliente)
 
+> A leitura do botão engana: quem lê rápido vê "Ativar" e acha que está ligado.
+> O que você quer é exatamente essa tela — três "Ativar" e nenhum "Gerenciar".
+>
 > Deixar meio de pagamento manual ligado é pedir para a cliente receber pedido que
 > nunca será pago — e o produto digital some do estoque mental dela.
 
 ### 2.9 WooCommerce → Configurações → E-mails
 
-- [ ] "De" (nome): deixe genérico na mãe, troca por cliente
-- [ ] Cor base: a cor da marca (trocada por cliente)
-- [ ] Conferir que **Novo pedido**, **Pedido processando** e **Pedido concluído** estão ativos
+**Lista de notificações** (topo da aba)
+
+- [ ] Conferir o ✓ azul em **Novo pedido**, **Processando pedido** e
+      **Pedido concluído**
+      *(os três já vêm ativos de fábrica — é só conferir, não mexa nos outros)*
+
+> Esses três são os únicos que importam nesta loja. "Novo pedido" avisa a sua
+> cliente que vendeu, "Processando pedido" confirma o pagamento para a
+> compradora e "Pedido concluído" é o e-mail que leva o link do PDF.
+>
+> **"Pedido cancelado (Cliente)" vem desativado e fica assim.** E o
+> **"Confirm email address" continua em inglês** mesmo com o site em português:
+> é uma string sem tradução no pacote pt_BR. Só aparece quando alguém troca o
+> próprio e-mail dentro de "Minha conta", o que praticamente não acontece numa
+> loja de PDF. Vale tentar **Painel → Atualizações → Atualizar traduções** antes
+> de exportar; se continuar em inglês, deixe.
+
+**Opções do e-mail do remetente**
+
+- [ ] Nome "De": **`Loja`** na mãe *(vem o nome do site — no dev vem `loja-mae`)*
+- [ ] Endereço "De": trocado por cliente
+      *(no LocalWP vem `dev-email@wpengine.local`, que não existe fora do dev)*
+- [ ] Endereço "Responder para": em branco
+
+**Modelo do e-mail**
+
+- [ ] Logotipo: vazio na mãe — ✍️ a cliente envia o dela na entrega
+- [ ] Largura do logotipo: **120** · Alinhamento: **Esquerda** · Fonte: **Helvetica**
+- [ ] Texto do rodapé: acrescentar o crédito na segunda linha
+
+```
+{site_title}<br />{store_address}<br /><a href="https://lojinhapronta.com.br">Loja criada por Lojinha Pronta</a>
+```
+
+**Paleta de cores** — o único ponto que vem errado nesta aba
+
+- [ ] Desligar **"Sincronização automática com alterações de tema"**
+- [ ] Acento: **`#124559`** *(vem `#8526ff`, roxo do WooCommerce)*
+- [ ] Título e texto `#1e1e1e` · Texto secundário `#787c82` · fundos `#ffffff`
+
+> A sincronização com o tema está ligada, mas o `theme.json` do tema filho é
+> **aditivo**: acrescenta `lp-marca` e companhia sem sobrescrever a paleta base
+> do Twenty Twenty-Five. Resultado: o WooCommerce não acha cor de marca nenhuma
+> e mantém o roxo dele. Deixar ligado só faz o roxo voltar depois — desligue e
+> escreva o hex na mão.
+
+**Antes de sair da aba**
+
+- [ ] Na **Prévia de e-mail**, escolher "Processando pedido" e conferir que o
+      valor aparece como **`R$ 50,00`**, não `$ 50,00`
+
+> A prévia usa a moeda real da loja. Se vier `$`, a moeda ficou errada no
+> assistente — volte em **2.5** e conserte antes de exportar. Uma loja-mãe
+> exportada em dólar cobra em dólar em toda cliente que receber o clone.
 
 ### 2.10 FluentSMTP
 
@@ -209,6 +270,33 @@ entregue.
 > O crédito "Loja criada por Lojinha Pronta" **não fica aqui** — ele é gerado
 > pelo tema, fora do rodapé editável, justamente para que nem a cliente nem você
 > apaguem sem querer.
+
+---
+
+## Parte 2.12 — Páginas: traduzir e limpar
+
+O assistente do WooCommerce cria as páginas dele em inglês, e o WordPress deixa
+duas páginas de exemplo para trás. Tudo isso viaja para a loja da cliente.
+
+**Páginas → renomear título e slug**
+
+| Vem como | Fica |
+| --- | --- |
+| Cart | **Carrinho** · `/carrinho` |
+| Checkout | **Finalizar compra** · `/finalizar-compra` |
+| My account | **Minha conta** · `/minha-conta` |
+| Shop | **Loja** · `/loja` |
+
+- [ ] Excluir **"Sample Page"** e o post **"Hello world!"** (e esvaziar a lixeira)
+- [ ] Conferir em **WooCommerce → Configurações → Avançado** que as quatro
+      páginas continuam apontadas nos campos certos
+
+> Pode renomear sem medo: o WooCommerce guarda essas páginas por **ID**, não por
+> nome nem por endereço. O passo de conferir no "Avançado" é só para dormir
+> tranquilo.
+>
+> Endereço em português também é o que a compradora espera ver quando desconfia
+> do link antes de pagar.
 
 ---
 
