@@ -278,14 +278,27 @@ Mantenha o `[privacy_policy]` — vira o link da página de privacidade.
 
 ---
 
-## Parte 2.11 — Rodapé
+## Parte 2.11 — Cabeçalho e rodapé
 
-O rodapé **vem do tema filho**, em `parts/footer.html`. Não se monta clicando.
+Os dois **vêm do tema filho**, em `parts/header.html` e `parts/footer.html`.
+Não se montam clicando.
 
 - [ ] Confirmar que a pasta `parts/` está dentro de `wp-content/themes/lojinha-pronta/`
-- [ ] Abrir a loja e conferir: título do site, as duas colunas de links, e a
-      faixa de crédito com o ano corrente por baixo
-- [ ] Clicar nos sete links e conferir que nenhum dá 404
+- [ ] No topo: título do site e **três links** — Loja, Sobre, Contato — mais os
+      ícones de conta e carrinho
+- [ ] No rodapé: título do site, as duas colunas de links, e a faixa de crédito
+      com o ano corrente por baixo
+- [ ] Clicar nos dez links e conferir que nenhum dá 404
+
+> **O menu do topo é a mesma armadilha do rodapé, ao contrário.** Sem menu
+> configurado, o Twenty Twenty-Five lista *todas* as páginas em ordem
+> alfabética: a loja entregue abre com "Carrinho, Contato, Finalizar compra,
+> Loja, Minha conta, Política de privacidade, Política de reembolso, Sobre,
+> Termos de uso" no topo. Ninguém põe "Finalizar compra" num menu, e página
+> jurídica é rodapé.
+>
+> Três links também resolvem o celular: cabem na tela sem hambúrguer, que é um
+> componente a menos para quebrar.
 
 > **O rodapé do Twenty Twenty-Five é uma armadilha.** Ele traz oito links do
 > site de demonstração do tema — Blog, Sobre, Perguntas frequentes, Autores,

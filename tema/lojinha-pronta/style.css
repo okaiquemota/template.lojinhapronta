@@ -39,3 +39,23 @@ Text Domain: lojinha-pronta
 .lp-rodape a:focus-visible {
   text-decoration: underline;
 }
+
+/* Cabeçalho (parts/header.html).
+
+   Sem menu configurado, o tema-pai lista todas as páginas em ordem
+   alfabética — inclusive "Finalizar compra" e as jurídicas, que não têm
+   nada que fazer no topo. Três links bastam, e três links cabem na tela do
+   celular sem precisar de hambúrguer. */
+.lp-cabecalho__menu p {
+  margin: 0;
+}
+
+.lp-cabecalho a {
+  text-decoration: none;
+}
+
+.lp-cabecalho a:hover,
+.lp-cabecalho a:focus-visible {
+  text-decoration: underline;
+}
+

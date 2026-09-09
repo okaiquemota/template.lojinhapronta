@@ -3,6 +3,11 @@
   "version": 3,
   "templateParts": [
     {
+      "name": "header",
+      "title": "Cabeçalho",
+      "area": "header"
+    },
+    {
       "name": "footer",
       "title": "Rodapé",
       "area": "footer"
