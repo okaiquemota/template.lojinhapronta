@@ -26,6 +26,25 @@ economia, é o produto.
 | **All-in-One WP Migration** | é o mecanismo de clonagem — exporta a loja-mãe inteira num arquivo |
 | **The SEO Framework** | SEO que funciona sem configuração. Sem anúncio dentro do painel |
 
+**Ordem de instalação:** FluentSMTP, All-in-One WP Migration e The SEO Framework
+na loja-mãe. O **Mercado Pago fica para a entrega** — é o único que depende de
+credencial da cliente e enche o painel de aviso enquanto está sem chave.
+
+> **O The SEO Framework não aparece na busca por nome.** Procurar
+> "The SEO Framework" devolve 574 resultados com Rank Math e Yoast na frente.
+> Busque pelo slug **`autodescription`** — o plugin se chamava AutoDescription
+> e o endereço nunca mudou. Ou vá direto em
+> `/wp-admin/plugin-install.php?s=autodescription&tab=search&type=term`.
+> Confirme o autor **Sybre Waaijer**.
+>
+> O **FluentSMTP** abre um assistente pedindo provedor de e-mail assim que
+> ativa. Feche: no ambiente local não existe e-mail real para configurar, e ele
+> é preenchido na entrega com o endereço do domínio da cliente. O que importa
+> agora é ele estar instalado para viajar dentro do `.wpress`.
+
+Versões conferidas na loja-mãe: WooCommerce 11.1.0, All-in-One WP Migration
+7.110, FluentSMTP 2.4.0, The SEO Framework 5.1.4.
+
 ### O que NÃO instalar, e o que usa no lugar
 
 | tentação | por que não | o que usar |
@@ -324,7 +343,10 @@ agora e escreva o conteúdo na **Parte 3** — elas *são* as páginas de lá.
 
 ## Parte 3 — Páginas que já vêm prontas
 
-Escreva uma vez, com marcadores para trocar por cliente.
+Escritas uma vez, com marcadores para trocar por cliente. Estão em
+**`paginas/`**, em markup de blocos: cola no **Editor de código** da página
+(`Ctrl`+`Shift`+`Alt`+`M`), não no editor visual. Slugs, marcadores e o motivo
+de cada decisão jurídica estão no `paginas/LEIA-ME.md`.
 
 - [ ] Política de privacidade (LGPD) — **reescrever a página que já existe**
 - [ ] Política de reembolso de produto digital — **reescrever a que já existe**
