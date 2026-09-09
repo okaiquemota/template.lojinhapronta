@@ -241,9 +241,6 @@ body.admin-bar .lp-cabecalho { top: 32px; }
    imagem, e melhor que uma chamada de página de vendas: quem entra numa loja
    quer ver o que ela vende. */
 
-.lp-faixa-banner:empty,
-.lp-faixa-banner > p:empty { display: none; }
-
 .lp-banner {
   margin: 0 auto;
   max-width: var(--lp-largura);
@@ -284,6 +281,19 @@ body.admin-bar .lp-cabecalho { top: 32px; }
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--wp--preset--color--lp-marca) 35%, transparent);
   transform: translateY(-2px);
 }
+
+/* ------------------------------------------------- seções que podem faltar
+
+   Loja recém-entregue não tem categoria cadastrada, e cliente sem arte não
+   tem banner. Nos dois casos o atalho devolve vazio e sobraria um cartão
+   branco com um título e nada embaixo — que lê como site quebrado, não como
+   loja nova.
+
+   `:has()` resolve sem PHP: se o cartão não contém a lista, ele não existe. */
+
+.lp-cartao.lp-categorias:not(:has(ul.products)) { display: none; }
+
+.lp-faixa-banner:not(:has(.lp-banner)) { display: none; }
 
 /* ------------------------------------------------------------- categorias
 
