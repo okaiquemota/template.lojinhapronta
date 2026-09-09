@@ -34,7 +34,13 @@ Sem estes seis, não comece — cada um vira uma ida e volta que estoura o prazo
 - [ ] Conferir que o WordPress abre e o painel entra
 - [ ] Trocar a senha de administrador
 - [ ] Criar o usuário do cliente como **Administrador** e remover credenciais de teste
+- [ ] Trocar o **e-mail do usuário** administrador
+- [ ] Trocar o **e-mail do site** em Configurações → Geral
 - [ ] `[P01]` Loja instalada e configurada no domínio do cliente
+
+> São dois e-mails diferentes e os dois vêm da loja-mãe apontando para um
+> endereço local falso. Esquecer o segundo faz aviso de pedido, de atualização e
+> de recuperação de senha caírem no vazio — e ninguém percebe até precisar.
 
 ## 2. Domínio e segurança · ~15 min
 
