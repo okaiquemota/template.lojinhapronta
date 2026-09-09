@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "slug": "lp-marca",
+          "color": "#124559",
+          "name": "Cor da marca"
+        },
+        {
+          "slug": "lp-marca-escura",
+          "color": "#0a2531",
+          "name": "Marca escura"
+        },
+        {
+          "slug": "lp-destaque",
+          "color": "#cf3f2b",
+          "name": "Destaque"
+        },
+        {
+          "slug": "lp-suave",
+          "color": "#f4f2ef",
+          "name": "Fundo suave"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "elements": {
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--lp-destaque)",
+          "text": "#ffffff"
+        },
+        ":hover": {
+          "color": {
+            "background": "var(--wp--preset--color--lp-marca)",
+            "text": "#ffffff"
+          }
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--lp-marca)"
+        }
+      }
+    }
+  }
+}

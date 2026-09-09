@@ -1,0 +1,17 @@
+/*
+Theme Name:  Lojinha Pronta
+Theme URI:   https://lojinhapronta.com.br
+Author:      Lojinha Pronta
+Author URI:  https://lojinhapronta.com.br
+Description: Tema das lojas entregues pela Lojinha Pronta. Tema filho do Twenty Twenty-Five: herda os modelos de página e continua recebendo atualização de segurança do WordPress. Só carrega o que é específico da entrega — paleta da cliente, botão de WhatsApp, Analytics e o crédito de rodapé.
+Template:    twentytwentyfive
+Version:     1.0.0
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 7.4
+License:     GPL-2.0-or-later
+Text Domain: lojinha-pronta
+*/
+
+/* As cores e o espaçamento vivem no theme.json.
+   Este arquivo é só para ajuste pontual que o theme.json não alcança. */

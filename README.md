@@ -67,6 +67,15 @@ Pendente para publicar:
 - [ ] Hospedagem definida
 - [ ] Conta do Mercado Pago
 
+## `tema/lojinha-pronta/`
+
+Tema filho do Twenty Twenty-Five. Herda os modelos do pai e recebe atualização
+de segurança pelo WordPress; carrega só o que é da entrega — paleta, botão de
+WhatsApp, Analytics e o crédito de rodapé.
+
+Por cliente mudam dois arquivos: `config-cliente.php` (WhatsApp e Analytics) e
+as quatro cores do `theme.json`. Detalhes em `tema/lojinha-pronta/LEIA-ME.md`.
+
 ## `ESPECIFICACAO-LOJA-MAE.md`
 
 Como montar a instalação-mestre: cinco plugins com a justificativa de cada um, o
@@ -88,8 +97,6 @@ corrija: a promessa de 4–6h só vale com número medido.
 ## Próximos passos
 
 1. Executar a especificação numa instalação WordPress
-2. Tema filho: cores em variáveis, botão de WhatsApp, snippet do Analytics e o
-   rodapé "Loja criada por Lojinha Pronta" fixo — é o motor de aquisição, não
-   pode depender de alguém lembrar
+2. Testar o tema e o import do CSV num WooCommerce real
 3. Briefing que desemboca no CSV
 4. Vídeos e manual (feitos uma vez, servem pra sempre)
