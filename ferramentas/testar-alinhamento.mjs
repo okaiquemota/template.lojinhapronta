@@ -52,7 +52,16 @@ for (const largura of [1440, 1280, 1024, 768, 480]) {
 
   const esquerdas = new Set(Object.values(medidas).map((v) => v[0]));
   const direitas = new Set(Object.values(medidas).map((v) => v[1]));
-  const ok = esquerdas.size === 1 && direitas.size === 1;
+  const alinhado = esquerdas.size === 1 && direitas.size === 1;
+
+  // A faixa colorida tem que ir de ponta a ponta: se a margem negativa do
+  // WordPress vencer a nossa regra, ela sobra de um lado e falta do outro.
+  const faixa = await p.evaluate(() => {
+    const { left, right } = document.getElementById('faixa-b').getBoundingClientRect();
+    return [Math.round(left), Math.round(right)];
+  });
+  const sangra = faixa[0] === 0 && faixa[1] === largura;
+  const ok = alinhado && sangra;
   falhou ||= !ok;
 
   console.log(`\n${largura}px  ${ok ? '\u2714 alinhado' : '\u2718 DESALINHADO'}`);
@@ -60,6 +69,7 @@ for (const largura of [1440, 1280, 1024, 768, 480]) {
     for (const [id, [l, r]] of Object.entries(medidas)) {
       console.log(`   ${REGIOES[id].padEnd(18)} ${String(l).padStart(5)} \u2192 ${r}`);
     }
+    if (!sangra) console.log(`   faixa de fundo     ${String(faixa[0]).padStart(5)} \u2192 ${faixa[1]}  (esperado 0 \u2192 ${largura})`);
   }
   await p.close();
 }
