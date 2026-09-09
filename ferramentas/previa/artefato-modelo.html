@@ -1,0 +1,356 @@
+<title>Telas da Lojinha Pronta</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --tinta: #131a1f;
+  --suave: #66757c;
+  --fundo: #e9ecee;
+  --palco: #dfe4e7;
+  --painel: #ffffff;
+  --linha: #d1d8dc;
+  --acento: #0f5d70;
+  --sombra: 0 1px 2px rgba(11, 26, 33, .05), 0 18px 40px -24px rgba(11, 26, 33, .45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --tinta: #e4eaed;
+    --suave: #8c9aa1;
+    --fundo: #10161a;
+    --palco: #0b1013;
+    --painel: #171f24;
+    --linha: #27333a;
+    --acento: #57b8cd;
+    --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 18px 40px -24px rgba(0, 0, 0, .8);
+  }
+}
+
+:root[data-theme="dark"] {
+  --tinta: #e4eaed;
+  --suave: #8c9aa1;
+  --fundo: #10161a;
+  --palco: #0b1013;
+  --painel: #171f24;
+  --linha: #27333a;
+  --acento: #57b8cd;
+  --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 18px 40px -24px rgba(0, 0, 0, .8);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pagina {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+@media (min-width: 1000px) {
+  .pagina { grid-template-columns: 19rem minmax(0, 1fr); align-items: start; }
+}
+
+/* ------------------------------------------------------------------ rail */
+
+.rail { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.marca { display: flex; flex-direction: column; gap: .3rem; }
+
+.marca h1 {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+
+.marca p { margin: 0; color: var(--suave); font-size: .875rem; }
+
+.telas { display: flex; flex-direction: column; gap: .3rem; }
+
+.tela {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+  padding: .7rem .9rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0 8px 8px 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+.tela:hover { background: color-mix(in srgb, var(--acento) 8%, transparent); }
+
+.tela:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+.tela[aria-current="true"] {
+  background: var(--painel);
+  border-left-color: var(--acento);
+  box-shadow: var(--sombra);
+}
+
+.tela__nome { font-weight: 600; }
+
+.tela__papel { color: var(--suave); font-size: .8125rem; }
+
+.nota {
+  padding: .9rem 1rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--acento) 8%, transparent);
+  color: var(--suave);
+  font-size: .8125rem;
+  line-height: 1.55;
+}
+
+.nota strong { color: var(--tinta); font-weight: 600; }
+
+/* ----------------------------------------------------------------- palco */
+
+.palco {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.larguras {
+  display: flex;
+  gap: .25rem;
+  padding: .25rem;
+  border-radius: 999px;
+  background: var(--palco);
+}
+
+.larguras button {
+  display: flex;
+  align-items: baseline;
+  gap: .45rem;
+  padding: .4rem .95rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--suave);
+  font: inherit;
+  font-size: .875rem;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.larguras button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+.larguras button[aria-pressed="true"] {
+  background: var(--painel);
+  color: var(--tinta);
+  font-weight: 600;
+  box-shadow: var(--sombra);
+}
+
+.larguras b {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-weight: 500;
+  font-size: .8125rem;
+}
+
+.medida {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .8125rem;
+  color: var(--suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.moldura {
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  background: var(--painel);
+  box-shadow: var(--sombra);
+}
+
+.cromo {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .6rem .85rem;
+  border-bottom: 1px solid var(--linha);
+}
+
+.cromo i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--linha);
+}
+
+.cromo span {
+  margin-left: .5rem;
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  background: var(--palco);
+  color: var(--suave);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .75rem;
+}
+
+.janela { overflow: hidden; }
+
+.janela iframe {
+  display: block;
+  border: 0;
+  transform-origin: top left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .01ms !important; }
+}
+</style>
+
+<div class="pagina">
+  <div class="rail">
+    <div class="marca">
+      <h1>Telas da Lojinha Pronta</h1>
+      <p>As seis páginas do tema, renderizadas com o CSS de verdade.</p>
+    </div>
+
+    <div class="telas" role="tablist">
+<!--TELAS-->
+    </div>
+
+    <p class="nota">
+      Produtos, preços e categorias são <strong>inventados</strong>, só para as
+      telas não ficarem vazias. Faltam aqui o <strong>carrinho</strong> e o
+      <strong>finalizar compra</strong>: o WooCommerce os monta com blocos
+      próprios, que eu não consigo reproduzir com honestidade fora dele.
+    </p>
+  </div>
+
+  <div class="palco">
+    <div class="barra">
+      <div class="larguras" role="group" aria-label="Largura da tela">
+        <button type="button" data-largura="1440" aria-pressed="true">Computador <b>1440</b></button>
+        <button type="button" data-largura="768" aria-pressed="false">Tablet <b>768</b></button>
+        <button type="button" data-largura="390" aria-pressed="false">Celular <b>390</b></button>
+      </div>
+      <p class="medida" id="medida">—</p>
+    </div>
+
+    <div class="moldura">
+      <div class="cromo">
+        <i></i><i></i><i></i>
+        <span id="endereco">lojadokiwi.com.br</span>
+      </div>
+      <div class="janela" id="janela">
+        <iframe id="quadro" title="Prévia da tela"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/plain" id="css-wp"><!--CSS-WP--></script>
+<script type="text/plain" id="css-tema"><!--CSS-TEMA--></script>
+<!--DADOS-->
+
+<script>
+(() => {
+  'use strict';
+
+  const cssWp = document.getElementById('css-wp').textContent;
+  const cssTema = document.getElementById('css-tema').textContent;
+
+  const paginas = {};
+  document.querySelectorAll('[data-pagina]').forEach((no) => {
+    paginas[no.dataset.pagina] = { corpo: no.textContent, classe: no.dataset.classe };
+  });
+
+  const ENDERECOS = <!--ENDERECOS-->;
+
+  const quadro = document.getElementById('quadro');
+  const janela = document.getElementById('janela');
+  const medida = document.getElementById('medida');
+  const endereco = document.getElementById('endereco');
+
+  let slug = 'home';
+  let largura = 1440;
+
+  function montar() {
+    const p = paginas[slug];
+    quadro.srcdoc = '<!doctype html><html lang="pt-BR"><meta charset="utf-8">'
+      + '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">'
+      + '<style>' + cssWp + cssTema + '</style>'
+      + '<body class="' + p.classe + '">' + p.corpo;
+    endereco.textContent = ENDERECOS[slug];
+  }
+
+  function encaixar() {
+    const disponivel = janela.clientWidth;
+    const escala = Math.min(1, disponivel / largura);
+    let altura = 900;
+
+    try {
+      const doc = quadro.contentDocument;
+      if (doc && doc.body) altura = Math.max(doc.documentElement.scrollHeight, 600);
+    } catch (e) { /* ainda carregando */ }
+
+    quadro.style.width = largura + 'px';
+    quadro.style.height = altura + 'px';
+    quadro.style.transform = 'scale(' + escala + ')';
+    janela.style.height = Math.round(altura * escala) + 'px';
+    medida.textContent = largura + ' × ' + altura + ' px · ' + Math.round(escala * 100) + '%';
+  }
+
+  quadro.addEventListener('load', () => {
+    encaixar();
+    // As fontes chegam depois e mudam a altura do conteúdo.
+    setTimeout(encaixar, 400);
+    setTimeout(encaixar, 1200);
+  });
+
+  document.querySelectorAll('.tela').forEach((botao) => {
+    botao.addEventListener('click', () => {
+      slug = botao.dataset.slug;
+      document.querySelectorAll('.tela').forEach((b) => {
+        b.setAttribute('aria-current', String(b === botao));
+      });
+      montar();
+    });
+  });
+
+  document.querySelectorAll('.larguras button').forEach((botao) => {
+    botao.addEventListener('click', () => {
+      largura = Number(botao.dataset.largura);
+      document.querySelectorAll('.larguras button').forEach((b) => {
+        b.setAttribute('aria-pressed', String(b === botao));
+      });
+      encaixar();
+    });
+  });
+
+  window.addEventListener('resize', encaixar);
+
+  document.querySelector('.tela').setAttribute('aria-current', 'true');
+  montar();
+})();
+</script>

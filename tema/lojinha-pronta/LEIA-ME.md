@@ -127,3 +127,16 @@ blocos próprios, complexos demais para eu imitar com fidelidade — e imitar ma
 é pior que não imitar, porque dá confiança falsa. O CSS delas é conservador de
 propósito: encosta em botão, painel e campo, que têm nome estável, e deixa o
 resto de fábrica. Essas duas precisam de olho humano na loja real.
+
+### Publicar as telas num link
+
+```
+node ferramentas/previa/gerar.mjs && node ferramentas/previa/artefato.mjs
+```
+
+Gera `ferramentas/previa/telas.html`: as seis telas num arquivo só, cada uma
+num iframe com o `style.css` de verdade, com troca de largura entre 1440, 768
+e 390. É o que se publica como artefato para avaliar o visual sem baixar ZIP,
+trocar pasta e recarregar.
+
+O `telas.html` é gerado — não edite. O que se edita é o `artefato-modelo.html`.

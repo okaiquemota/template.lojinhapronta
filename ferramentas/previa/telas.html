@@ -1,0 +1,2212 @@
+<title>Telas da Lojinha Pronta</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --tinta: #131a1f;
+  --suave: #66757c;
+  --fundo: #e9ecee;
+  --palco: #dfe4e7;
+  --painel: #ffffff;
+  --linha: #d1d8dc;
+  --acento: #0f5d70;
+  --sombra: 0 1px 2px rgba(11, 26, 33, .05), 0 18px 40px -24px rgba(11, 26, 33, .45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --tinta: #e4eaed;
+    --suave: #8c9aa1;
+    --fundo: #10161a;
+    --palco: #0b1013;
+    --painel: #171f24;
+    --linha: #27333a;
+    --acento: #57b8cd;
+    --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 18px 40px -24px rgba(0, 0, 0, .8);
+  }
+}
+
+:root[data-theme="dark"] {
+  --tinta: #e4eaed;
+  --suave: #8c9aa1;
+  --fundo: #10161a;
+  --palco: #0b1013;
+  --painel: #171f24;
+  --linha: #27333a;
+  --acento: #57b8cd;
+  --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 18px 40px -24px rgba(0, 0, 0, .8);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pagina {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+@media (min-width: 1000px) {
+  .pagina { grid-template-columns: 19rem minmax(0, 1fr); align-items: start; }
+}
+
+/* ------------------------------------------------------------------ rail */
+
+.rail { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.marca { display: flex; flex-direction: column; gap: .3rem; }
+
+.marca h1 {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+
+.marca p { margin: 0; color: var(--suave); font-size: .875rem; }
+
+.telas { display: flex; flex-direction: column; gap: .3rem; }
+
+.tela {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+  padding: .7rem .9rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0 8px 8px 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+.tela:hover { background: color-mix(in srgb, var(--acento) 8%, transparent); }
+
+.tela:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+.tela[aria-current="true"] {
+  background: var(--painel);
+  border-left-color: var(--acento);
+  box-shadow: var(--sombra);
+}
+
+.tela__nome { font-weight: 600; }
+
+.tela__papel { color: var(--suave); font-size: .8125rem; }
+
+.nota {
+  padding: .9rem 1rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--acento) 8%, transparent);
+  color: var(--suave);
+  font-size: .8125rem;
+  line-height: 1.55;
+}
+
+.nota strong { color: var(--tinta); font-weight: 600; }
+
+/* ----------------------------------------------------------------- palco */
+
+.palco {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.larguras {
+  display: flex;
+  gap: .25rem;
+  padding: .25rem;
+  border-radius: 999px;
+  background: var(--palco);
+}
+
+.larguras button {
+  display: flex;
+  align-items: baseline;
+  gap: .45rem;
+  padding: .4rem .95rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--suave);
+  font: inherit;
+  font-size: .875rem;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.larguras button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+.larguras button[aria-pressed="true"] {
+  background: var(--painel);
+  color: var(--tinta);
+  font-weight: 600;
+  box-shadow: var(--sombra);
+}
+
+.larguras b {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-weight: 500;
+  font-size: .8125rem;
+}
+
+.medida {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .8125rem;
+  color: var(--suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.moldura {
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  background: var(--painel);
+  box-shadow: var(--sombra);
+}
+
+.cromo {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .6rem .85rem;
+  border-bottom: 1px solid var(--linha);
+}
+
+.cromo i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--linha);
+}
+
+.cromo span {
+  margin-left: .5rem;
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  background: var(--palco);
+  color: var(--suave);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .75rem;
+}
+
+.janela { overflow: hidden; }
+
+.janela iframe {
+  display: block;
+  border: 0;
+  transform-origin: top left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .01ms !important; }
+}
+</style>
+
+<div class="pagina">
+  <div class="rail">
+    <div class="marca">
+      <h1>Telas da Lojinha Pronta</h1>
+      <p>As seis páginas do tema, renderizadas com o CSS de verdade.</p>
+    </div>
+
+    <div class="telas" role="tablist">
+      <button class="tela" data-slug="home" type="button">
+        <span class="tela__nome">Página inicial</span>
+        <span class="tela__papel">Banner, categorias e vitrine</span>
+      </button>
+      <button class="tela" data-slug="loja" type="button">
+        <span class="tela__nome">Loja</span>
+        <span class="tela__papel">Catálogo, ordenação, paginação</span>
+      </button>
+      <button class="tela" data-slug="produto" type="button">
+        <span class="tela__nome">Produto</span>
+        <span class="tela__papel">Ficha, abas e relacionados</span>
+      </button>
+      <button class="tela" data-slug="conta" type="button">
+        <span class="tela__nome">Minha conta</span>
+        <span class="tela__papel">Downloads e pedidos da compradora</span>
+      </button>
+      <button class="tela" data-slug="entrar" type="button">
+        <span class="tela__nome">Acessar</span>
+        <span class="tela__papel">Formulário de login</span>
+      </button>
+      <button class="tela" data-slug="texto" type="button">
+        <span class="tela__nome">Página de texto</span>
+        <span class="tela__papel">Jurídicas, sobre, contato</span>
+      </button>
+    </div>
+
+    <p class="nota">
+      Produtos, preços e categorias são <strong>inventados</strong>, só para as
+      telas não ficarem vazias. Faltam aqui o <strong>carrinho</strong> e o
+      <strong>finalizar compra</strong>: o WooCommerce os monta com blocos
+      próprios, que eu não consigo reproduzir com honestidade fora dele.
+    </p>
+  </div>
+
+  <div class="palco">
+    <div class="barra">
+      <div class="larguras" role="group" aria-label="Largura da tela">
+        <button type="button" data-largura="1440" aria-pressed="true">Computador <b>1440</b></button>
+        <button type="button" data-largura="768" aria-pressed="false">Tablet <b>768</b></button>
+        <button type="button" data-largura="390" aria-pressed="false">Celular <b>390</b></button>
+      </div>
+      <p class="medida" id="medida">—</p>
+    </div>
+
+    <div class="moldura">
+      <div class="cromo">
+        <i></i><i></i><i></i>
+        <span id="endereco">lojadokiwi.com.br</span>
+      </div>
+      <div class="janela" id="janela">
+        <iframe id="quadro" title="Prévia da tela"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/plain" id="css-wp">
+:root{
+  --wp--preset--color--lp-marca:#124559;
+  --wp--preset--color--lp-marca-escura:#0a2531;
+  --wp--preset--color--lp-destaque:#cf3f2b;
+  --wp--preset--color--lp-suave:#f4f2ef;
+  --wp--preset--font-family--lp-titulo:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --wp--preset--font-family--lp-texto:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --wp--style--root--padding-left:4.5rem;
+  --wp--style--root--padding-right:4.5rem;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--wp--preset--font-family--lp-texto);
+  font-size:1.0625rem;line-height:1.6;
+  color:#1d2327;background:#fff}
+h1,h2,h3{font-family:var(--wp--preset--font-family--lp-titulo);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-0.022em;
+  color:#124559}
+a{color:#124559}
+.wp-element-button,.wp-block-button__link,.button{display:inline-block;padding:.7rem 1.6rem;
+  border:0;border-radius:999px;text-decoration:none;cursor:pointer;
+  font-family:var(--wp--preset--font-family--lp-titulo);font-weight:600;
+  background:#cf3f2b;color:#fff}
+.has-lp-suave-background-color{background-color:#f4f2ef !important}
+.has-lp-marca-color{color:#124559 !important}
+.has-lp-suave-color{color:#f4f2ef !important}
+.has-lp-marca-escura-background-color{background-color:#0a2531 !important}
+.wp-site-blocks{padding-left:var(--wp--style--root--padding-left);padding-right:var(--wp--style--root--padding-right)}
+/* layout "constrained": o WordPress limita os filhos ao contentSize, não ao
+   wideSize. Imitar isso errado escondeu um recuo de 134px dentro dos cartões
+   que só apareceu na loja de verdade. */
+.wp-container > *{max-width:1200px;margin-left:auto;margin-right:auto}
+/* e é assim que ele trata largura total — especificidade 0,2,0 */
+.wp-container > .alignfull{max-width:none;width:auto;
+  margin-left:calc(var(--wp--style--root--padding-left) * -1);
+  margin-right:calc(var(--wp--style--root--padding-right) * -1);
+  padding-left:var(--wp--style--root--padding-left);
+  padding-right:var(--wp--style--root--padding-right)}
+.wp-block-columns{display:flex;flex-wrap:wrap;gap:3.5rem}
+.wp-block-column{flex:1}
+@media (max-width:781px){.wp-block-column{flex-basis:100% !important;flex-grow:1}}
+.wp-block-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+</script>
+<script type="text/plain" id="css-tema">/*
+Theme Name:  Lojinha Pronta
+Theme URI:   https://lojinhapronta.com.br
+Author:      Lojinha Pronta
+Author URI:  https://lojinhapronta.com.br
+Description: Tema das lojas entregues pela Lojinha Pronta. Tema filho do Twenty Twenty-Five: herda os modelos de página e continua recebendo atualização de segurança do WordPress. Só carrega o que é específico da entrega — paleta da cliente, botão de WhatsApp, Analytics e o crédito de rodapé.
+Template:    twentytwentyfive
+Version:     3.2.0
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 7.4
+License:     GPL-2.0-or-later
+Text Domain: lojinha-pronta
+*/
+
+/* Cores, fontes e espaçamento vivem no theme.json. Aqui fica o que ele não
+   alcança: o que o WooCommerce desenha por conta própria, os blocos com
+   classe nossa, e o movimento.
+
+   Nenhuma cor é escrita à mão fora da paleta: as superfícies neutras saem da
+   cor da marca por color-mix. Trocar os quatro hexadecimais do theme.json
+   reveste a loja. A única exceção é branco sobre a cor da marca — por isso a
+   marca precisa ser escura o bastante para carregar branco (4,5:1). */
+
+:root {
+  --lp-largura: 1200px;
+  --lp-gutter: clamp(1.25rem, 3.5vw, 2.5rem);
+  --lp-raio: 20px;
+  --lp-superficie: color-mix(in srgb, var(--wp--preset--color--lp-marca) 5%, #fff);
+  --lp-linha: color-mix(in srgb, var(--wp--preset--color--lp-marca) 12%, transparent);
+  --lp-secundario: color-mix(in srgb, var(--wp--preset--color--lp-marca) 62%, #fff);
+  --lp-fundo: color-mix(in srgb, var(--wp--preset--color--lp-marca) 4%, #f1f2f3);
+  --lp-sombra: 0 1px 2px rgba(9, 30, 40, .04), 0 6px 20px -10px rgba(9, 30, 40, .14);
+  --lp-sombra-alta: 0 2px 4px rgba(9, 30, 40, .05), 0 28px 56px -20px rgba(9, 30, 40, .28);
+  --lp-mola: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* ------------------------------------------------------------ alinhamento
+
+   Uma largura e um recuo para o site inteiro.
+
+   Cuidado ao mexer aqui: `margin: 0 0 X` num elemento que é filho direto de
+   uma faixa anula o `margin-left: auto` que centraliza o miolo, e o elemento
+   cola na esquerda enquanto o resto do site fica centralizado. Foi assim que
+   o título da loja e o breadcrumb saíram de linha. Use `margin: 0 auto X`.
+
+   O alinhamento vinha de três lugares ao mesmo tempo: o recuo que o WordPress
+   aplica em .wp-site-blocks, as margens negativas que ele dá aos blocos de
+   largura total, e o valor que eu escrevia em cada arquivo. Cabeçalho e rodapé
+   pegavam duas dessas fontes e o miolo pegava outra — não existe número que
+   faça três regras diferentes coincidirem.
+
+   Aqui o recuo do tema-pai é zerado e a conta passa a ser feita só neste
+   bloco: faixa de largura total, recuo lateral igual, miolo com a mesma
+   largura máxima. */
+
+.wp-site-blocks {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Os !important não são preguiça. O WordPress emite a margem negativa dos
+   blocos de largura total como `.wp-container-XXXX > .alignfull`, que tem
+   especificidade maior que qualquer classe nossa — e o mesmo seletor também
+   impõe o recuo lateral dele. Sem os !important a faixa estoura 72px para
+   cada lado em tela larga, e em tela estreita o miolo dela recua 72px
+   enquanto o cabeçalho recua 20. */
+.lp-cabecalho,
+.lp-rodape,
+.lp-faixa-banner,
+.lp-secao,
+.lp-loja,
+.lp-produto,
+.wp-site-blocks > main {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: var(--lp-gutter) !important;
+  padding-right: var(--lp-gutter) !important;
+}
+
+/* Na home o <main> não desenha nada: quem tem fundo e recuo são as faixas. */
+.wp-site-blocks > main.lp-main {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.lp-cabecalho > *,
+.lp-rodape > *,
+.lp-faixa-banner > *,
+.lp-secao > *,
+.lp-loja > *,
+.lp-produto > * {
+  max-width: var(--lp-largura);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ------------------------------------------------------------------ folha
+
+   Página cinza, conteúdo em cartões brancos. É a linguagem das lojas
+   brasileiras — Nuvemshop, Loja Integrada — e a compradora já sabe lê-la:
+   cada cartão é um assunto, e o cinza entre eles separa sem precisar de
+   linha divisória. */
+
+body { background: var(--lp-fundo); }
+
+.lp-cartao {
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  border-radius: var(--lp-raio);
+  background: #fff;
+  box-shadow: var(--lp-sombra);
+}
+
+/* Loja e produto montam o próprio cartão em volta do conteúdo do WooCommerce.
+   As páginas de texto e de conta ficam numa faixa branca contínua, que lê
+   melhor que um cartão flutuando com contrato dentro. */
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  background: #fff;
+}
+
+
+/* ---------------------------------------------------------------- movimento
+
+   Uma regra só, usada por tudo: o elemento nasce deslocado e transparente, e
+   o vida.js marca `data-visivel` quando ele entra na tela. O `--i` escalona a
+   entrada dos irmãos — cartões de produto, passos — para a linha não aparecer
+   toda de uma vez, que é o que faz parecer estático.
+
+   Quem pediu menos movimento no sistema recebe tudo visível e nada anima. */
+
+/* O `.lp-js` vem de uma linha no wp_head: sem JavaScript, nada disto se
+   aplica e a página aparece inteira e parada, em vez de ficar invisível
+   esperando um script que não vai rodar. */
+.lp-js .lp-revela {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity .7s var(--lp-mola) calc(var(--i, 0) * 80ms),
+    transform .7s var(--lp-mola) calc(var(--i, 0) * 80ms);
+}
+
+.lp-js .lp-revela[data-visivel="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------------- cabeçalho */
+
+.lp-cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: color-mix(in srgb, #fff 88%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--lp-linha);
+  transition: box-shadow .3s ease;
+}
+
+/* Fileira de cima: marca, busca e conta. Fileira de baixo: navegação. Duas
+   fileiras porque a busca é o que mais se usa numa loja de catálogo grande, e
+   espremida entre os links ela vira um campo de 12 caracteres. */
+.lp-cabecalho__topo { padding: .9rem 0; }
+
+.lp-cabecalho__menu {
+  padding: .6rem 0;
+  border-top: 1px solid var(--lp-linha);
+  font-size: .9375rem;
+}
+
+/* A linha e a sombra só aparecem depois que a página sai do topo: parado, o
+   cabeçalho é invisível; rolando, ele se descola do conteúdo. */
+.lp-cabecalho[data-rolado="true"] { box-shadow: 0 2px 24px -14px rgba(9, 30, 40, .55); }
+
+body.admin-bar .lp-cabecalho { top: 32px; }
+
+@media (max-width: 782px) {
+  body.admin-bar .lp-cabecalho { top: 46px; }
+}
+
+.lp-cabecalho__menu p { margin: 0; }
+
+.lp-cabecalho a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* O link do WhatsApp fica em cor de destaque no menu: numa loja pequena ele
+   converte mais que qualquer botão da página. */
+.lp-zap-link { color: var(--wp--preset--color--lp-destaque) !important; font-weight: 600; }
+
+/* Sublinhado que cresce do meio, em vez do text-decoration piscando. */
+.lp-cabecalho__menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform .3s var(--lp-mola);
+}
+
+.lp-cabecalho__menu a:hover::after,
+.lp-cabecalho__menu a:focus-visible::after { transform: scaleX(1); }
+
+/* -------------------------------------------------------------------- ritmo */
+
+.lp-secao { padding-top: clamp(1rem, 2vw, 1.5rem); }
+
+.lp-secao:last-of-type { padding-bottom: clamp(2rem, 4vw, 3rem); }
+
+.lp-faixa-banner { padding-top: clamp(1rem, 2vw, 1.5rem); }
+
+.lp-rotulo {
+  margin: 0 auto .9rem;
+  font-family: var(--wp--preset--font-family--lp-titulo);
+  font-size: .8125rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--lp-destaque);
+}
+
+/* Título de seção à esquerda, não centralizado: loja se lê varrendo a coluna
+   da esquerda, e título no meio da tela é linguagem de página de vendas. */
+.lp-secao > h2 {
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.lp-centro { justify-content: center; margin-top: 2.75rem; }
+
+/* ---------------------------------------------------------------- banner
+
+   Só existe quando a cliente sobe uma arte no config-cliente.php. Sem imagem,
+   a home abre direto nas categorias — que é melhor que um banner de banco de
+   imagem, e melhor que uma chamada de página de vendas: quem entra numa loja
+   quer ver o que ela vende. */
+
+.lp-banner {
+  margin: 0 auto;
+  max-width: var(--lp-largura);
+}
+
+.lp-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--lp-raio);
+}
+
+.lp-banner a {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--lp-raio);
+}
+
+.lp-banner a img { transition: transform .5s var(--lp-mola); }
+
+.lp-banner a:hover img { transform: scale(1.02); }
+
+/* ------------------------------------------------------------------ botões
+
+   Cheio é para a ação da página: comprar, finalizar. Vazado é para navegar —
+   "ver a loja inteira" não disputa atenção com "adicionar ao carrinho". */
+
+.lp-botao-vazado .wp-block-button__link {
+  background: transparent !important;
+  color: var(--wp--preset--color--lp-marca) !important;
+  box-shadow: inset 0 0 0 1px var(--lp-linha);
+  transition: background-color .25s ease, box-shadow .25s ease, transform .25s var(--lp-mola);
+}
+
+.lp-botao-vazado .wp-block-button__link:hover,
+.lp-botao-vazado .wp-block-button__link:focus-visible {
+  background: var(--lp-superficie) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--wp--preset--color--lp-marca) 35%, transparent);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------- seções que podem faltar
+
+   Loja recém-entregue não tem categoria cadastrada, e cliente sem arte não
+   tem banner. Nos dois casos o atalho devolve vazio e sobraria um cartão
+   branco com um título e nada embaixo — que lê como site quebrado, não como
+   loja nova.
+
+   `:has()` resolve sem PHP: se o cartão não contém a lista, ele não existe. */
+
+.lp-cartao.lp-categorias:not(:has(ul.products)) { display: none; }
+
+.lp-faixa-banner:not(:has(.lp-banner)) { display: none; }
+
+/* ------------------------------------------------------------- categorias
+
+   O WooCommerce desenha categoria com a mesma marcação de produto, imagem
+   grande incluída. Mas categoria quase nunca tem imagem cadastrada, e o que
+   aparece é o quadrado cinza de "sem foto" repetido quatro vezes. Vira lista
+   de atalhos, que é o que ela é. */
+
+.lp-cartao.lp-categorias ul.products li.product-category img { display: none; }
+
+.lp-cartao.lp-categorias ul.products li.product-category { text-align: left; }
+
+.lp-cartao.lp-categorias ul.products li.product-category > a {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 1.1rem 1.35rem;
+  border-radius: 14px;
+  background: var(--lp-superficie);
+  transition: background-color .25s ease, transform .25s var(--lp-mola);
+}
+
+.lp-cartao.lp-categorias ul.products li.product-category > a:hover {
+  background: color-mix(in srgb, var(--wp--preset--color--lp-marca) 10%, #fff);
+  transform: translateY(-2px);
+}
+
+.lp-cartao.lp-categorias ul.products li.product-category > a::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  opacity: .45;
+}
+
+.lp-categorias .woocommerce-loop-category__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.lp-categorias mark.count {
+  background: none;
+  color: var(--lp-secundario);
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------- garantias
+
+   Faixa curta perto do fim, não parágrafo no topo. É o que a compradora
+   procura antes de confiar numa loja que ela não conhece — e ela procura
+   depois de já ter gostado de algum material, não antes de ver qualquer um. */
+
+.lp-provas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1.5rem 2.5rem;
+  max-width: var(--lp-largura);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-provas li {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  font-size: .9375rem;
+  color: var(--lp-secundario);
+}
+
+.lp-provas strong {
+  display: block;
+  color: var(--wp--preset--color--lp-marca);
+  font-family: var(--wp--preset--font-family--lp-titulo);
+  font-weight: 600;
+}
+
+.lp-provas svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  margin-top: 2px;
+  fill: none;
+  stroke: var(--wp--preset--color--lp-destaque);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------------------------------------------------------------- busca */
+
+.lp-busca {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  flex: 1 1 20rem;
+  max-width: 34rem;
+  padding: .3rem .3rem .3rem 1.15rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--lp-linha);
+  transition: box-shadow .2s ease;
+}
+
+.lp-busca:focus-within {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--wp--preset--color--lp-marca) 45%, transparent);
+}
+
+.lp-busca input[type="search"] {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: .9375rem;
+  color: inherit;
+  outline: none;
+}
+
+.lp-busca button {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--wp--preset--color--lp-marca);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.lp-busca button:hover { background: var(--wp--preset--color--lp-destaque); }
+
+.lp-busca svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  /* No celular a busca ganha a linha inteira: espremida entre a marca e o
+     carrinho, ela vira um campo onde não cabe "atividades". */
+  .lp-busca { order: 3; flex-basis: 100%; max-width: none; }
+}
+
+/* --------------------------------------------------- vitrine de produtos */
+
+/* O WooCommerce ainda distribui os produtos com float e largura em
+   porcentagem, calculada a partir do columns="" do atalho. Grade resolve
+   melhor: as colunas nascem da largura disponível, não de um número fixo, e
+   os cartões da mesma linha ficam da mesma altura sozinhos. */
+/* Duas colunas no celular, não uma. Com uma, a home fica com sete mil pixels
+   de altura e a compradora desiste antes de ver o terceiro material.
+   Número fixo por faixa em vez de auto-fill: assim a coluna do celular não
+   depende de quanto sobra de largura. */
+ul.products,
+ul.wc-block-product-template,
+.wc-block-grid__products {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.75rem, 4vw, 2.75rem) clamp(.85rem, 2.5vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  ul.products,
+  ul.wc-block-product-template,
+  .wc-block-grid__products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 960px) {
+  ul.products,
+  ul.wc-block-product-template,
+  .wc-block-grid__products { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+ul.products::before,
+ul.products::after { display: none; }
+
+ul.products li.product {
+  display: flex !important;
+  flex-direction: column;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0;
+  float: none !important;
+  clear: none !important;
+  border: 0;
+  text-align: center;
+}
+
+ul.products li.product a { text-decoration: none; }
+
+/* O link do WooCommerce embrulha imagem, título e preço de uma vez, então o
+   fundo tem que ir na imagem — no link, ele tinge o cartão inteiro. */
+ul.products li.product > a:first-child { display: block; }
+
+ul.products li.product img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin: 0;
+  border-radius: var(--lp-raio);
+  background: var(--lp-superficie);
+  transition: transform .35s var(--lp-mola), box-shadow .35s var(--lp-mola);
+}
+
+ul.products li.product:hover img {
+  transform: translateY(-5px);
+  box-shadow: var(--lp-sombra-alta);
+}
+
+ul.products li.product .woocommerce-loop-product__title {
+  margin: 1rem 0 .3rem;
+  font-size: clamp(.9375rem, 2.6vw, 1.0625rem);
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+ul.products li.product .price {
+  display: block;
+  margin: 0 0 1.25rem;
+  color: var(--lp-secundario);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Vazado por padrão, coral no hover. Oito pílulas vermelhas numa grade
+   gritam mais que o produto, que é o que a pessoa veio ver — e a cor cheia
+   fica guardada para o botão da página do produto, onde a decisão acontece.
+   O botão vai para o fim do cartão: com títulos de uma e de duas linhas na
+   mesma fileira, sem isto eles ficam em alturas diferentes. */
+ul.products li.product .button {
+  align-self: center;
+  margin-top: auto;
+  padding: .55rem 1.5rem;
+  font-size: .9375rem;
+  background: transparent;
+  color: var(--wp--preset--color--lp-marca);
+  box-shadow: inset 0 0 0 1px var(--lp-linha);
+  transition: background-color .25s ease, color .25s ease, transform .25s var(--lp-mola), box-shadow .25s var(--lp-mola);
+}
+
+ul.products li.product .button:hover,
+ul.products li.product .button:focus-visible {
+  background: var(--wp--preset--color--lp-destaque);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--wp--preset--color--lp-destaque) 70%, transparent);
+}
+
+/* ------------------------------------------------- páginas do WooCommerce */
+
+.lp-loja,
+.lp-produto {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(4.5rem, 8vw, 6.5rem);
+}
+
+.woocommerce-breadcrumb {
+  font-size: .875rem;
+  color: var(--lp-secundario);
+}
+
+.woocommerce-breadcrumb a { color: inherit; }
+
+.woocommerce-products-header__title,
+.lp-loja .entry-title,
+.lp-loja h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.woocommerce-breadcrumb { margin: 0 0 .5rem; }
+
+.woocommerce-result-count {
+  margin: 0;
+  font-size: .9375rem;
+  color: var(--lp-secundario);
+}
+
+.woocommerce-ordering { margin: 0; float: none; }
+
+/* Grade em vez de flex: o container tem filhos de larguras diferentes —
+   breadcrumb, título, contagem, ordenação, grade de produtos — e num flex
+   simples eles brigam por espaço na mesma linha. Aqui só a contagem e a
+   ordenação dividem uma linha; o resto ocupa a largura toda.
+
+   Os dois seletores existem porque o WooCommerce ora entrega o conteúdo solto
+   dentro do cartão, ora embrulhado num .woocommerce — e eu não vou adivinhar
+   qual dos dois em cada versão. */
+.lp-loja .lp-cartao,
+.lp-loja .lp-cartao > .woocommerce {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .5rem 1rem;
+}
+
+/* Tudo ocupa a largura toda, menos a contagem e a ordenação, que dividem uma
+   linha. Excluir as duas aqui evita disputa de especificidade com as regras
+   abaixo — que era o que fazia as duas empilharem. */
+.lp-loja .lp-cartao > *:not(.woocommerce-result-count):not(.woocommerce-ordering),
+.lp-loja .lp-cartao > .woocommerce > *:not(.woocommerce-result-count):not(.woocommerce-ordering) {
+  grid-column: 1 / -1;
+}
+
+.lp-loja .woocommerce-result-count {
+  grid-column: 1;
+  margin: 0;
+}
+
+.lp-loja .woocommerce-ordering {
+  grid-column: 2;
+  margin: 0;
+  float: none;
+  justify-self: end;
+}
+
+.lp-loja ul.products { margin-top: 2rem; }
+
+/* O <select> nativo vem com contorno preto quadrado do navegador. */
+.woocommerce-ordering select,
+.wc-block-catalog-sorting select,
+.woocommerce-page select:not([multiple]) {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: .6rem 2.75rem .6rem 1.15rem;
+  border: 1px solid var(--lp-linha);
+  border-radius: 999px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23888888' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  font: inherit;
+  font-size: .9375rem;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.woocommerce-ordering select:hover { border-color: color-mix(in srgb, var(--wp--preset--color--lp-marca) 30%, transparent); }
+
+.lp-produto .woocommerce-product-gallery img { border-radius: var(--lp-raio); }
+
+.lp-produto div.product .product_title {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.lp-produto div.product p.price {
+  margin: 0 0 1.5rem;
+  color: var(--wp--preset--color--lp-marca);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+
+.lp-produto div.product form.cart { margin-bottom: 2rem; }
+
+.lp-produto .woocommerce-tabs ul.tabs { padding-left: 0; }
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+  border-top: 0;
+  border-radius: var(--lp-raio);
+  background: var(--lp-superficie);
+  font-size: .9375rem;
+}
+
+/* ------------------------------------------------------------------ rodapé */
+
+.lp-rodape {
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.lp-rodape ul { list-style: none; margin: 0; padding: 0; }
+
+.lp-rodape li + li { margin-top: .7rem; }
+
+/* O link herda a cor da marca do theme.json, que sobre o rodapé escuro dá
+   1,5:1 — ilegível. O mesmo vale para os títulos das colunas. */
+.lp-rodape a {
+  color: var(--wp--preset--color--lp-suave);
+  text-decoration: none;
+  opacity: .78;
+  transition: opacity .2s ease;
+}
+
+.lp-rodape a:hover,
+.lp-rodape a:focus-visible { opacity: 1; }
+
+.lp-rodape h2 {
+  margin-bottom: 1.1rem;
+  color: #fff;
+  opacity: .5;
+}
+
+.lp-credito {
+  background: var(--wp--preset--color--lp-marca-escura, #0a2531);
+  color: var(--wp--preset--color--lp-suave, #f4f2ef);
+}
+
+/* --------------------------------------------------------------- sem animar
+
+   Quem pediu menos movimento no sistema operacional recebe a página inteira
+   visível e parada. Não é acessibilidade de enfeite: para parte das pessoas,
+   movimento na tela causa enjoo de verdade. */
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-js .lp-revela {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+
+  ul.products li.product:hover img,
+  ul.products li.product .button:hover,
+  .lp-botao-vazado .wp-block-button__link:hover,
+  .lp-banner a:hover img,
+  .lp-cartao.lp-categorias ul.products li.product-category > a:hover { transform: none; }
+}
+
+/* =================================================== páginas internas ===== */
+
+/* ------------------------------------------------------- página do produto
+
+   O WooCommerce ainda monta esta página com float e largura em porcentagem.
+   Funciona, mas não sobrevive a texto longo nem a celular sem remendo. Grade
+   de duas colunas resolve, e a coluna da compra acompanha a rolagem: em
+   material com descrição comprida, o botão sumia da tela. */
+
+.lp-produto div.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 900px) {
+  .lp-produto div.product { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+  .lp-produto div.product > .woocommerce-tabs,
+  .lp-produto div.product > .related,
+  .lp-produto div.product > .upsells { grid-column: 1 / -1; }
+}
+
+.lp-produto div.product .woocommerce-product-gallery {
+  width: auto !important;
+  float: none !important;
+  margin: 0 !important;
+}
+
+/* O <figure> traz a margem de 40px que o navegador dá de fábrica, e a imagem
+   do produto encolhia por causa dela. */
+.lp-produto div.product .woocommerce-product-gallery figure,
+.lp-produto div.product .woocommerce-product-gallery ol { margin: 0; padding: 0; list-style: none; }
+
+.lp-produto div.product .woocommerce-product-gallery img {
+  width: 100%;
+  border-radius: var(--lp-raio);
+  background: var(--lp-superficie);
+}
+
+.lp-produto div.product .summary {
+  width: auto !important;
+  float: none !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 900px) {
+  .lp-produto div.product .summary {
+    position: sticky;
+    top: 8.5rem;
+    align-self: start;
+  }
+}
+
+.lp-produto div.product .product_title {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+}
+
+.lp-produto div.product p.price {
+  margin: 0 0 1.5rem;
+  color: var(--wp--preset--color--lp-marca);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+
+.lp-produto .woocommerce-product-details__short-description {
+  margin-bottom: 1.75rem;
+  color: var(--lp-secundario);
+}
+
+.lp-produto div.product form.cart {
+  margin: 0 0 1.75rem;
+  padding: 0;
+}
+
+.lp-produto .single_add_to_cart_button {
+  width: 100%;
+  padding: .95rem 2rem;
+  font-size: 1.0625rem;
+}
+
+/* Linha de SKU e categoria: informação de rodapé de ficha, não texto corrido. */
+.lp-produto .product_meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--lp-linha);
+  font-size: .875rem;
+  color: var(--lp-secundario);
+}
+
+/* As abas vinham como lista com marcador — o WooCommerce conta com o CSS
+   dele para virarem abas, e eu não quero depender disso. */
+.lp-produto .woocommerce-tabs ul.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin: 0 0 1.5rem;
+  padding: 0 0 .5rem;
+  border-bottom: 1px solid var(--lp-linha);
+  list-style: none;
+}
+
+.lp-produto .woocommerce-tabs ul.tabs::before,
+.lp-produto .woocommerce-tabs ul.tabs::after { display: none; }
+
+.lp-produto .woocommerce-tabs ul.tabs li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.lp-produto .woocommerce-tabs ul.tabs li a {
+  display: block;
+  padding: .55rem 1.1rem;
+  border-radius: 999px;
+  font-size: .9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--lp-secundario);
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.lp-produto .woocommerce-tabs ul.tabs li a:hover { background: var(--lp-superficie); }
+
+.lp-produto .woocommerce-tabs ul.tabs li.active a {
+  background: var(--wp--preset--color--lp-marca);
+  color: #fff;
+}
+
+.lp-produto .woocommerce-Tabs-panel > h2:first-child { display: none; }
+
+.lp-produto .related > h2,
+.lp-produto .upsells > h2 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+}
+
+.lp-produto .related,
+.lp-produto .upsells {
+  margin-top: clamp(1rem, 2vw, 2rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--lp-linha);
+}
+
+/* --------------------------------------------------------------- paginação */
+
+.woocommerce-pagination ul.page-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  justify-content: center;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+
+.woocommerce-pagination li { border: 0 !important; }
+
+.woocommerce-pagination .page-numbers {
+  display: grid;
+  place-items: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 .6rem;
+  border-radius: 999px;
+  font-size: .9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--lp-secundario);
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.woocommerce-pagination a.page-numbers:hover { background: var(--lp-superficie); }
+
+.woocommerce-pagination .page-numbers.current {
+  background: var(--wp--preset--color--lp-marca);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------- minha conta
+
+   Menu de um lado, conteúdo do outro. Esta é a página que a compradora abre
+   meses depois para rebaixar o arquivo — se ela não achar o link, a promessa
+   de "baixe quando quiser" não existe. */
+
+/* Só vira grade quando o menu lateral existe. Deslogada, a mesma página
+   mostra apenas o formulário de acesso — e sem esta condição ele cai dentro
+   da coluna de 15rem do menu que não está lá. */
+.woocommerce-account .woocommerce:has(.woocommerce-MyAccount-navigation) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem clamp(2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+@media (min-width: 860px) {
+  .woocommerce-account .woocommerce:has(.woocommerce-MyAccount-navigation) {
+    grid-template-columns: 15rem minmax(0, 1fr);
+  }
+}
+
+.woocommerce-account .woocommerce > .woocommerce-notices-wrapper { grid-column: 1 / -1; }
+
+.woocommerce-MyAccount-navigation ul {
+  margin: 0;
+  padding: .5rem;
+  border-radius: var(--lp-raio);
+  background: var(--lp-superficie);
+  list-style: none;
+}
+
+.woocommerce-MyAccount-navigation li { margin: 0; }
+
+.woocommerce-MyAccount-navigation a {
+  display: block;
+  padding: .65rem .9rem;
+  border-radius: 12px;
+  font-size: .9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color .2s ease;
+}
+
+.woocommerce-MyAccount-navigation a:hover { background: #fff; }
+
+.woocommerce-MyAccount-navigation .is-active a {
+  background: var(--wp--preset--color--lp-marca);
+  color: #fff;
+}
+
+/* Tabela larga em tela estreita: rolagem no container, não estouro na página. */
+.woocommerce-MyAccount-content { overflow-x: auto; }
+
+/* ---------------------------------------------------------------- tabelas */
+
+.woocommerce table.shop_table {
+  width: 100%;
+  margin: 0 0 2.5rem;
+  border: 1px solid var(--lp-linha);
+  border-radius: var(--lp-raio);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  font-size: .9375rem;
+}
+
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td {
+  padding: .9rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--lp-linha);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.woocommerce table.shop_table thead th {
+  background: var(--lp-superficie);
+  font-size: .8125rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--lp-secundario);
+}
+
+.woocommerce table.shop_table tr:last-child td { border-bottom: 0; }
+
+.woocommerce table.shop_table .button {
+  padding: .45rem 1.1rem;
+  font-size: .875rem;
+}
+
+/* ----------------------------------------------------------------- formulários
+
+   Um campo de formulário é onde a compra trava. O WooCommerce entrega os
+   dele sem estilo nenhum e o navegador desenha a caixa cinza padrão. */
+
+.woocommerce form .form-row,
+.woocommerce-form-row {
+  display: block;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.woocommerce label,
+.woocommerce-form-row label {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.woocommerce .required { color: var(--wp--preset--color--lp-destaque); text-decoration: none; }
+
+.woocommerce input[type="text"],
+.woocommerce input[type="email"],
+.woocommerce input[type="tel"],
+.woocommerce input[type="password"],
+.woocommerce input[type="number"],
+.woocommerce textarea,
+.woocommerce .input-text {
+  width: 100%;
+  padding: .7rem 1rem;
+  border: 1px solid var(--lp-linha);
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+  font-size: 1rem;
+  color: inherit;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.woocommerce input:focus,
+.woocommerce textarea:focus,
+.woocommerce .input-text:focus {
+  outline: none;
+  border-color: var(--wp--preset--color--lp-marca);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--wp--preset--color--lp-marca) 18%, transparent);
+}
+
+.woocommerce-form__label-for-checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.woocommerce-form__input-checkbox { width: 1.05rem; height: 1.05rem; accent-color: var(--wp--preset--color--lp-marca); }
+
+.woocommerce #customer_login h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Formulário de acesso centralizado: sozinho numa página larga, encostado à
+   esquerda, ele parece um pedaço solto de outra tela. */
+.woocommerce #customer_login {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 26rem));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.woocommerce #customer_login .col-1,
+.woocommerce #customer_login .col-2 {
+  width: 100%;
+  float: none;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border-radius: var(--lp-raio);
+  background: var(--lp-superficie);
+}
+
+.woocommerce-form-login__submit { width: 100%; }
+
+.woocommerce-LostPassword { margin: 1.25rem 0 0; font-size: .9375rem; }
+
+/* ---------------------------------------------------------- texto corrido
+
+   Página jurídica é para ser lida, não varrida: linha curta, respiro entre
+   parágrafos e título que se distingue sem gritar.
+
+   A loja e o produto ficam de fora de todas estas regras. Não é zelo: o
+   `margin: 0 auto` daqui, aplicado a um item de grade, centraliza o item — e
+   era isso que jogava a contagem de resultados para o meio da loja. */
+
+/* Linha curta só onde há texto para ler. A conta e o carrinho são tabela e
+   formulário: espremidos em 44rem, a tabela vaza para fora da tela. */
+body:not(.woocommerce-page) .wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) > * {
+  max-width: 44rem;
+}
+
+body.woocommerce-page .wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) > * {
+  max-width: var(--lp-largura);
+}
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) .wp-block-post-title {
+  margin: 0 auto 2rem;
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+}
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) h2 { margin: 2.75rem auto 1rem; }
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) h3 { margin: 2rem auto .75rem; }
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) p,
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) ul,
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) ol { margin: 0 auto 1.15rem; }
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) li + li { margin-top: .5rem; }
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) .wp-block-table table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--lp-linha);
+  border-radius: var(--lp-raio);
+  overflow: hidden;
+  font-size: .9375rem;
+}
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) .wp-block-table th,
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) .wp-block-table td {
+  padding: .8rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--lp-linha);
+  text-align: left;
+}
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) .wp-block-table thead th { background: var(--lp-superficie); }
+
+.wp-site-blocks > main:not(.lp-main):not(.lp-loja):not(.lp-produto) .wp-block-table tr:last-child td { border-bottom: 0; }
+
+/* ------------------------------------------------- carrinho e finalização
+
+   Estes dois o WooCommerce desenha com blocos próprios, e eu não consigo
+   renderizá-los na prévia. As regras abaixo são conservadoras de propósito:
+   encostam em botão, painel e campo, que têm nome estável, e deixam o resto
+   com o desenho de fábrica. */
+
+.wc-block-components-button:not(.is-link) {
+  border-radius: 999px !important;
+  font-family: var(--wp--preset--font-family--lp-titulo);
+  font-weight: 600;
+}
+
+.wc-block-components-panel,
+.wc-block-components-sidebar .wc-block-components-totals-wrapper {
+  border-radius: var(--lp-raio);
+}
+
+.wc-block-components-text-input input,
+.wc-block-components-select__container {
+  border-radius: 12px !important;
+}
+</script>
+<script type="text/plain" data-pagina="home" data-classe="home"><div class="wp-site-blocks">
+
+<header class="wp-block-group lp-cabecalho wp-container">
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
+    </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
+  </div>
+</header>
+
+<main class="wp-block-group lp-main wp-container">
+
+  <div class="wp-block-group alignfull lp-faixa-banner wp-container">
+    <div class="lp-banner"><a href="#"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20340%22%3E%0A%20%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23124559%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230a2531%22%2F%3E%0A%20%20%20%20%20%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%20%3Crect%20width%3D%221200%22%20height%3D%22340%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%221030%22%20cy%3D%2270%22%20r%3D%22150%22%20fill%3D%22%23cf3f2b%22%20opacity%3D%22.28%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%2270%22%20y%3D%22150%22%20font-family%3D%22sans-serif%22%20font-size%3D%2246%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%3EKits%20de%20atividades%20b%C3%ADblicas%3C%2Ftext%3E%0A%20%20%20%20%20%3Ctext%20x%3D%2270%22%20y%3D%22200%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20fill%3D%22%23fff%22%20opacity%3D%22.8%22%3EProntos%20para%20imprimir%20%C2%B7%20entrega%20na%20hora%3C%2Ftext%3E%0A%20%20%20%20%20%3Crect%20x%3D%2270%22%20y%3D%22235%22%20width%3D%22230%22%20height%3D%2252%22%20rx%3D%2226%22%20fill%3D%22%23fff%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22185%22%20y%3D%22268%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2218%22%20font-weight%3D%22600%22%20fill%3D%22%23124559%22%3EVer%20a%20cole%C3%A7%C3%A3o%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt=""></a></div>
+  </div>
+
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-categorias wp-container">
+      <h2 class="wp-block-heading lp-revela">Categorias</h2>
+      <ul class="products columns-4">
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Alfabetização <mark class="count">(12)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Educação especial <mark class="count">(8)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Escola bíblica <mark class="count">(6)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Datas comemorativas <mark class="count">(9)</mark></h2></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-novidades wp-container">
+      <h2 class="wp-block-heading lp-revela">Novidades</h2>
+      <div class="woocommerce columns-4"><ul class="products columns-4">
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e8d9c5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%238c5a3c%22%20opacity%3D%22.75%22%3EAlfabeto%20ilustrado%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Alfabeto ilustrado</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;19,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23d6e4e5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%232b5f6b%22%20opacity%3D%22.75%22%3ENumerais%20de%201%20a%2020%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Numerais de 1 a 20</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;24,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e6dcf0%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%235b4382%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%235b4382%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%235b4382%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%235b4382%22%20opacity%3D%22.75%22%3ERotina%20visual%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Rotina visual</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;12,00</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23f2e2cf%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%23a8632a%22%20opacity%3D%22.75%22%3EArca%20de%20No%C3%A9%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Arca de Noé</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;34,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23dbe7d4%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%2341693a%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%2341693a%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%2341693a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%2341693a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%2341693a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%2341693a%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%2341693a%22%20opacity%3D%22.75%22%3ECoordena%C3%A7%C3%A3o%20motora%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Coordenação motora</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;18,50</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23f6dede%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a04352%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a04352%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a04352%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a04352%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a04352%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%23a04352%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%23a04352%22%20opacity%3D%22.75%22%3ELembrancinha%20Dia%20das%20M%C3%A3es%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Lembrancinha Dia das Mães</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;9,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23dde3f0%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%233a4f80%22%20opacity%3D%22.75%22%3EVogais%20e%20s%C3%ADlabas%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Vogais e sílabas</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;27,00</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23efe6d3%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%237a6428%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%237a6428%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%237a6428%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%237a6428%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%237a6428%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%237a6428%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%237a6428%22%20opacity%3D%22.75%22%3ECalend%C3%A1rio%202026%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Calendário 2026</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;15,00</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li></ul></div>
+      <div class="wp-block-buttons lp-revela lp-centro">
+        <div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#">Ver a loja inteira</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-garantias wp-container">
+      <ul class="lp-provas lp-revela">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><strong>Entrega na hora</strong> Assim que o pagamento é confirmado</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM3 11h18"/></svg><span><strong>Pix, cartão ou boleto</strong> Pagamento em ambiente seguro</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg><span><strong>Baixe quando quiser</strong> Seus arquivos ficam em Minha conta</span></li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
+  <div class="wp-block-columns">
+    <div class="wp-block-column" style="flex:0 0 40%">
+      <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+      <p style="margin-top:.5rem;font-size:.875rem">Material digital para baixar na hora. Pagamento por Pix, cartão ou boleto.</p>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">A loja</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Todos os produtos</a></li><li><a href="#">Sobre</a></li><li><a href="#">Contato</a></li><li><a href="#">Minha conta</a></li></ul>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">Informações</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Termos de uso</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de reembolso</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<p class="lp-credito" style="margin:0;padding:1.25rem 1rem;font-size:.8rem;display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;border-top:1px solid rgba(255,255,255,.12)">
+  <span>&copy; 2026 Loja do Kiwi</span>
+  <a href="#">Loja criada por Lojinha Pronta</a>
+</p>
+
+</div></script>
+<script type="text/plain" data-pagina="loja" data-classe="woocommerce woocommerce-page woocommerce-shop"><div class="wp-site-blocks">
+<header class="wp-block-group lp-cabecalho wp-container">
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
+    </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
+  </div>
+</header>
+<main class="wp-block-group alignfull lp-loja wp-container">
+  <div class="wp-block-group lp-cartao"><div class="woocommerce">
+    <nav class="woocommerce-breadcrumb"><a href="#">Início</a> / Loja</nav>
+    <h1 class="woocommerce-products-header__title page-title">Loja</h1>
+    <p class="woocommerce-result-count">Mostrando 1–8 de 24 resultados</p>
+    <form class="woocommerce-ordering" method="get">
+      <select name="orderby" class="orderby">
+        <option>Ordenação padrão</option><option>Mais recentes</option><option>Menor preço</option>
+      </select>
+    </form>
+    <ul class="products columns-4">
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e8d9c5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%238c5a3c%22%20opacity%3D%22.75%22%3EAlfabeto%20ilustrado%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Alfabeto ilustrado</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;19,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23d6e4e5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%232b5f6b%22%20opacity%3D%22.75%22%3ENumerais%20de%201%20a%2020%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Numerais de 1 a 20</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;24,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e6dcf0%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%235b4382%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%235b4382%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%235b4382%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%235b4382%22%20opacity%3D%22.75%22%3ERotina%20visual%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Rotina visual</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;12,00</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23f2e2cf%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%23a8632a%22%20opacity%3D%22.75%22%3EArca%20de%20No%C3%A9%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Arca de Noé</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;34,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23dbe7d4%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%2341693a%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%2341693a%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%2341693a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%2341693a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%2341693a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%2341693a%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%2341693a%22%20opacity%3D%22.75%22%3ECoordena%C3%A7%C3%A3o%20motora%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Coordenação motora</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;18,50</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23f6dede%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a04352%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a04352%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a04352%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a04352%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a04352%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%23a04352%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%23a04352%22%20opacity%3D%22.75%22%3ELembrancinha%20Dia%20das%20M%C3%A3es%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Lembrancinha Dia das Mães</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;9,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23dde3f0%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%233a4f80%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%233a4f80%22%20opacity%3D%22.75%22%3EVogais%20e%20s%C3%ADlabas%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Vogais e sílabas</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;27,00</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23efe6d3%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%237a6428%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%237a6428%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%237a6428%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%237a6428%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%237a6428%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%237a6428%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%237a6428%22%20opacity%3D%22.75%22%3ECalend%C3%A1rio%202026%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Calendário 2026</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;15,00</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li></ul>
+    <nav class="woocommerce-pagination">
+      <ul class="page-numbers">
+        <li><span class="page-numbers current">1</span></li>
+        <li><a class="page-numbers" href="#">2</a></li>
+        <li><a class="page-numbers" href="#">3</a></li>
+        <li><a class="next page-numbers" href="#">→</a></li>
+      </ul>
+    </nav>
+  </div></div>
+</main>
+<footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
+  <div class="wp-block-columns">
+    <div class="wp-block-column" style="flex:0 0 40%">
+      <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+      <p style="margin-top:.5rem;font-size:.875rem">Material digital para baixar na hora. Pagamento por Pix, cartão ou boleto.</p>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">A loja</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Todos os produtos</a></li><li><a href="#">Sobre</a></li><li><a href="#">Contato</a></li><li><a href="#">Minha conta</a></li></ul>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">Informações</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Termos de uso</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de reembolso</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<p class="lp-credito" style="margin:0;padding:1.25rem 1rem;font-size:.8rem;display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;border-top:1px solid rgba(255,255,255,.12)">
+  <span>&copy; 2026 Loja do Kiwi</span>
+  <a href="#">Loja criada por Lojinha Pronta</a>
+</p>
+</div></script>
+<script type="text/plain" data-pagina="produto" data-classe="woocommerce woocommerce-page single-product"><div class="wp-site-blocks">
+<header class="wp-block-group lp-cabecalho wp-container">
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
+    </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
+  </div>
+</header>
+<main class="wp-block-group alignfull lp-produto wp-container">
+  <div class="wp-block-group lp-cartao"><div class="woocommerce">
+    <nav class="woocommerce-breadcrumb"><a href="#">Início</a> / <a href="#">Alfabetização</a> / Alfabeto ilustrado</nav>
+    <div class="product type-product">
+      <div class="woocommerce-product-gallery">
+        <figure class="woocommerce-product-gallery__wrapper"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e8d9c5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%238c5a3c%22%20opacity%3D%22.75%22%3EAlfabeto%20ilustrado%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt=""></figure>
+      </div>
+      <div class="summary entry-summary">
+        <h1 class="product_title entry-title">Alfabeto ilustrado · 42 páginas</h1>
+        <p class="price"><span class="woocommerce-Price-amount">R$&#160;19,90</span></p>
+        <div class="woocommerce-product-details__short-description">
+          <p>Fichas do alfabeto completo com ilustração, letra bastão e cursiva. Arquivo em PDF, pronto para imprimir em A4.</p>
+        </div>
+        <form class="cart" method="post">
+          <button type="submit" class="single_add_to_cart_button button alt">Comprar agora</button>
+        </form>
+        <div class="product_meta">
+          <span class="sku_wrapper">SKU: <span class="sku">alfabeto-ilustrado</span></span>
+          <span class="posted_in">Categoria: <a href="#">Alfabetização</a></span>
+        </div>
+      </div>
+      <div class="woocommerce-tabs wc-tabs-wrapper">
+        <ul class="tabs wc-tabs">
+          <li class="description_tab active"><a href="#">Descrição</a></li>
+          <li class="additional_information_tab"><a href="#">Informação adicional</a></li>
+        </ul>
+        <div class="woocommerce-Tabs-panel panel">
+          <h2>Descrição</h2>
+          <p>São 42 páginas em PDF: uma ficha por letra, com ilustração, a letra em bastão e em cursiva, e uma linha para treino. Imprima quantas vezes precisar para as suas turmas.</p>
+          <ul><li>Formato A4, alta resolução</li><li>Preto e branco, econômico na impressão</li><li>Entrega automática após o pagamento</li></ul>
+        </div>
+      </div>
+      <section class="related products">
+        <h2>Você também pode gostar</h2>
+        <ul class="products columns-4">
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e8d9c5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%238c5a3c%22%20opacity%3D%22.75%22%3EAlfabeto%20ilustrado%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Alfabeto ilustrado</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;19,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23d6e4e5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%232b5f6b%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%232b5f6b%22%20opacity%3D%22.75%22%3ENumerais%20de%201%20a%2020%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Numerais de 1 a 20</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;24,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e6dcf0%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%235b4382%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%235b4382%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%235b4382%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%235b4382%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%235b4382%22%20opacity%3D%22.75%22%3ERotina%20visual%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Rotina visual</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;12,00</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li>
+  <li class="product">
+    <a href="#" class="woocommerce-LoopProduct-link">
+      <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23f2e2cf%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%23a8632a%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%23a8632a%22%20opacity%3D%22.75%22%3EArca%20de%20No%C3%A9%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
+      <h2 class="woocommerce-loop-product__title">Arca de Noé</h2>
+      <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;34,90</span></span>
+    </a>
+    <a href="#" class="button add_to_cart_button">Adicionar</a>
+  </li></ul>
+      </section>
+    </div>
+  </div></div>
+</main>
+<footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
+  <div class="wp-block-columns">
+    <div class="wp-block-column" style="flex:0 0 40%">
+      <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+      <p style="margin-top:.5rem;font-size:.875rem">Material digital para baixar na hora. Pagamento por Pix, cartão ou boleto.</p>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">A loja</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Todos os produtos</a></li><li><a href="#">Sobre</a></li><li><a href="#">Contato</a></li><li><a href="#">Minha conta</a></li></ul>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">Informações</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Termos de uso</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de reembolso</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<p class="lp-credito" style="margin:0;padding:1.25rem 1rem;font-size:.8rem;display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;border-top:1px solid rgba(255,255,255,.12)">
+  <span>&copy; 2026 Loja do Kiwi</span>
+  <a href="#">Loja criada por Lojinha Pronta</a>
+</p>
+</div></script>
+<script type="text/plain" data-pagina="conta" data-classe="woocommerce woocommerce-page woocommerce-account"><div class="wp-site-blocks">
+<header class="wp-block-group lp-cabecalho wp-container">
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
+    </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
+  </div>
+</header>
+<main class="wp-block-group wp-container">
+  <h1 class="wp-block-post-title">Minha conta</h1>
+  <div class="woocommerce">
+    <nav class="woocommerce-MyAccount-navigation">
+      <ul>
+        <li class="woocommerce-MyAccount-navigation-link is-active"><a href="#">Painel</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Pedidos</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Downloads</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Detalhes da conta</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Sair</a></li>
+      </ul>
+    </nav>
+    <div class="woocommerce-MyAccount-content">
+      <p>Olá, <strong>Aline</strong>. Seus arquivos ficam aqui para sempre — baixe quantas vezes precisar.</p>
+      <table class="woocommerce-table woocommerce-table--order-downloads shop_table">
+        <thead><tr><th>Produto</th><th>Downloads restantes</th><th>Expira em</th><th>Baixar</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#">Alfabeto ilustrado</a></td><td>5</td><td>Nunca</td><td><a href="#" class="woocommerce-MyAccount-downloads-file button">alfabeto.pdf</a></td></tr>
+          <tr><td><a href="#">Numerais de 1 a 20</a></td><td>4</td><td>Nunca</td><td><a href="#" class="woocommerce-MyAccount-downloads-file button">numerais.pdf</a></td></tr>
+        </tbody>
+      </table>
+      <h2>Últimos pedidos</h2>
+      <table class="woocommerce-orders-table woocommerce-table shop_table">
+        <thead><tr><th>Pedido</th><th>Data</th><th>Situação</th><th>Total</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#">#1042</a></td><td>08/09/2026</td><td>Concluído</td><td>R$&#160;44,80</td><td><a href="#" class="woocommerce-button button view">Ver</a></td></tr>
+          <tr><td><a href="#">#1031</a></td><td>02/09/2026</td><td>Concluído</td><td>R$&#160;19,90</td><td><a href="#" class="woocommerce-button button view">Ver</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+<footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
+  <div class="wp-block-columns">
+    <div class="wp-block-column" style="flex:0 0 40%">
+      <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+      <p style="margin-top:.5rem;font-size:.875rem">Material digital para baixar na hora. Pagamento por Pix, cartão ou boleto.</p>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">A loja</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Todos os produtos</a></li><li><a href="#">Sobre</a></li><li><a href="#">Contato</a></li><li><a href="#">Minha conta</a></li></ul>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">Informações</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Termos de uso</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de reembolso</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<p class="lp-credito" style="margin:0;padding:1.25rem 1rem;font-size:.8rem;display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;border-top:1px solid rgba(255,255,255,.12)">
+  <span>&copy; 2026 Loja do Kiwi</span>
+  <a href="#">Loja criada por Lojinha Pronta</a>
+</p>
+</div></script>
+<script type="text/plain" data-pagina="entrar" data-classe="woocommerce woocommerce-page woocommerce-account"><div class="wp-site-blocks">
+<header class="wp-block-group lp-cabecalho wp-container">
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
+    </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
+  </div>
+</header>
+<main class="wp-block-group wp-container">
+  <h1 class="wp-block-post-title">Minha conta</h1>
+  <div class="woocommerce">
+    <div class="u-columns col2-set" id="customer_login">
+      <div class="u-column1 col-1">
+        <h2>Acessar</h2>
+        <form class="woocommerce-form woocommerce-form-login login">
+          <p class="woocommerce-form-row form-row-wide">
+            <label for="username">E-mail <span class="required">*</span></label>
+            <input class="woocommerce-Input woocommerce-Input--text input-text" type="text" id="username" value="">
+          </p>
+          <p class="woocommerce-form-row form-row-wide">
+            <label for="password">Senha <span class="required">*</span></label>
+            <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" id="password">
+          </p>
+          <p class="form-row">
+            <label class="woocommerce-form__label-for-checkbox"><input class="woocommerce-form__input-checkbox" type="checkbox"> <span>Lembrar de mim</span></label>
+            <button type="submit" class="woocommerce-button button woocommerce-form-login__submit">Acessar</button>
+          </p>
+          <p class="woocommerce-LostPassword lost_password"><a href="#">Perdeu a senha?</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
+  <div class="wp-block-columns">
+    <div class="wp-block-column" style="flex:0 0 40%">
+      <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+      <p style="margin-top:.5rem;font-size:.875rem">Material digital para baixar na hora. Pagamento por Pix, cartão ou boleto.</p>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">A loja</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Todos os produtos</a></li><li><a href="#">Sobre</a></li><li><a href="#">Contato</a></li><li><a href="#">Minha conta</a></li></ul>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">Informações</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Termos de uso</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de reembolso</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<p class="lp-credito" style="margin:0;padding:1.25rem 1rem;font-size:.8rem;display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;border-top:1px solid rgba(255,255,255,.12)">
+  <span>&copy; 2026 Loja do Kiwi</span>
+  <a href="#">Loja criada por Lojinha Pronta</a>
+</p>
+</div></script>
+<script type="text/plain" data-pagina="texto" data-classe="page"><div class="wp-site-blocks">
+<header class="wp-block-group lp-cabecalho wp-container">
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
+    </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
+  </div>
+</header>
+<main class="wp-block-group wp-container">
+  <h1 class="wp-block-post-title">Política de reembolso</h1>
+  <p>Todos os produtos da <strong>Loja do Kiwi</strong> são digitais: você paga e recebe um arquivo para baixar. Isso muda como funciona a devolução, e esta página explica exatamente como.</p>
+  <h2 class="wp-block-heading">Você tem 7 dias para desistir</h2>
+  <p>O Código de Defesa do Consumidor (art. 49) dá a você <strong>7 dias corridos a partir da compra</strong> para desistir de qualquer produto comprado pela internet, sem precisar explicar o motivo. Isso vale aqui, inclusive para arquivo já baixado.</p>
+  <p>É só escrever para <a href="#">contato@lojadokiwi.com.br</a> ou chamar no WhatsApp com o número do pedido.</p>
+  <h2 class="wp-block-heading">Como o dinheiro volta</h2>
+  <ul class="wp-block-list">
+    <li><strong>Pix</strong> — devolvemos por Pix na mesma chave, em até 5 dias úteis.</li>
+    <li><strong>Cartão de crédito</strong> — o estorno é feito na hora do nosso lado, mas quem devolve é a operadora.</li>
+    <li><strong>Boleto</strong> — devolvemos por Pix ou transferência, na conta que você indicar.</li>
+  </ul>
+  <h2 class="wp-block-heading">Se o problema for o arquivo, resolvemos antes</h2>
+  <p>Arquivo que não abre, download que não completa, link que expirou: isso não é caso de reembolso, é caso de conserto. Fale com a gente e reenviamos o arquivo — normalmente no mesmo dia.</p>
+  <figure class="wp-block-table"><table><thead><tr><th>Forma de pagamento</th><th>Prazo</th></tr></thead><tbody><tr><td>Pix</td><td>5 dias úteis</td></tr><tr><td>Cartão</td><td>Fatura seguinte</td></tr></tbody></table></figure>
+</main>
+<footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
+  <div class="wp-block-columns">
+    <div class="wp-block-column" style="flex:0 0 40%">
+      <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+      <p style="margin-top:.5rem;font-size:.875rem">Material digital para baixar na hora. Pagamento por Pix, cartão ou boleto.</p>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">A loja</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Todos os produtos</a></li><li><a href="#">Sobre</a></li><li><a href="#">Contato</a></li><li><a href="#">Minha conta</a></li></ul>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">Informações</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Termos de uso</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de reembolso</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<p class="lp-credito" style="margin:0;padding:1.25rem 1rem;font-size:.8rem;display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;border-top:1px solid rgba(255,255,255,.12)">
+  <span>&copy; 2026 Loja do Kiwi</span>
+  <a href="#">Loja criada por Lojinha Pronta</a>
+</p>
+</div></script>
+
+<script>
+(() => {
+  'use strict';
+
+  const cssWp = document.getElementById('css-wp').textContent;
+  const cssTema = document.getElementById('css-tema').textContent;
+
+  const paginas = {};
+  document.querySelectorAll('[data-pagina]').forEach((no) => {
+    paginas[no.dataset.pagina] = { corpo: no.textContent, classe: no.dataset.classe };
+  });
+
+  const ENDERECOS = {
+    "home": "lojadokiwi.com.br",
+    "loja": "lojadokiwi.com.br/loja/",
+    "produto": "lojadokiwi.com.br/produto/alfabeto-ilustrado/",
+    "conta": "lojadokiwi.com.br/minha-conta/",
+    "entrar": "lojadokiwi.com.br/minha-conta/",
+    "texto": "lojadokiwi.com.br/politica-de-reembolso/"
+};
+
+  const quadro = document.getElementById('quadro');
+  const janela = document.getElementById('janela');
+  const medida = document.getElementById('medida');
+  const endereco = document.getElementById('endereco');
+
+  let slug = 'home';
+  let largura = 1440;
+
+  function montar() {
+    const p = paginas[slug];
+    quadro.srcdoc = '<!doctype html><html lang="pt-BR"><meta charset="utf-8">'
+      + '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">'
+      + '<style>' + cssWp + cssTema + '</style>'
+      + '<body class="' + p.classe + '">' + p.corpo;
+    endereco.textContent = ENDERECOS[slug];
+  }
+
+  function encaixar() {
+    const disponivel = janela.clientWidth;
+    const escala = Math.min(1, disponivel / largura);
+    let altura = 900;
+
+    try {
+      const doc = quadro.contentDocument;
+      if (doc && doc.body) altura = Math.max(doc.documentElement.scrollHeight, 600);
+    } catch (e) { /* ainda carregando */ }
+
+    quadro.style.width = largura + 'px';
+    quadro.style.height = altura + 'px';
+    quadro.style.transform = 'scale(' + escala + ')';
+    janela.style.height = Math.round(altura * escala) + 'px';
+    medida.textContent = largura + ' × ' + altura + ' px · ' + Math.round(escala * 100) + '%';
+  }
+
+  quadro.addEventListener('load', () => {
+    encaixar();
+    // As fontes chegam depois e mudam a altura do conteúdo.
+    setTimeout(encaixar, 400);
+    setTimeout(encaixar, 1200);
+  });
+
+  document.querySelectorAll('.tela').forEach((botao) => {
+    botao.addEventListener('click', () => {
+      slug = botao.dataset.slug;
+      document.querySelectorAll('.tela').forEach((b) => {
+        b.setAttribute('aria-current', String(b === botao));
+      });
+      montar();
+    });
+  });
+
+  document.querySelectorAll('.larguras button').forEach((botao) => {
+    botao.addEventListener('click', () => {
+      largura = Number(botao.dataset.largura);
+      document.querySelectorAll('.larguras button').forEach((b) => {
+        b.setAttribute('aria-pressed', String(b === botao));
+      });
+      encaixar();
+    });
+  });
+
+  window.addEventListener('resize', encaixar);
+
+  document.querySelector('.tela').setAttribute('aria-current', 'true');
+  montar();
+})();
+</script>
