@@ -20,6 +20,17 @@ return [
     'analytics_ga4' => '',
 
     /*
+     * Barra de aviso no topo do site. Vazio esconde a barra inteira.
+     *
+     * É o lugar de "10% no Pix" ou "coleção de Páscoa no ar". Uma frase curta:
+     * a barra não quebra em duas linhas no celular sem ficar feia.
+     */
+    'aviso' => '',
+
+    // Para onde a barra leva. Vazio deixa a barra sem link.
+    'aviso_link' => '',
+
+    /*
      * Crédito "Loja criada por Lojinha Pronta" no rodapé.
      *
      * É o motor de aquisição do negócio: quem navega numa loja do nicho é o

@@ -2,20 +2,44 @@
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
   "templateParts": [
-    { "name": "header", "title": "Cabeçalho", "area": "header" },
-    { "name": "footer", "title": "Rodapé", "area": "footer" }
+    {
+      "name": "header",
+      "title": "Cabeçalho",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Rodapé",
+      "area": "footer"
+    }
   ],
   "settings": {
     "layout": {
-      "contentSize": "820px",
-      "wideSize": "1180px"
+      "contentSize": "860px",
+      "wideSize": "1240px"
     },
     "color": {
       "palette": [
-        { "slug": "lp-marca", "color": "#124559", "name": "Cor da marca" },
-        { "slug": "lp-marca-escura", "color": "#0a2531", "name": "Marca escura" },
-        { "slug": "lp-destaque", "color": "#cf3f2b", "name": "Destaque" },
-        { "slug": "lp-suave", "color": "#f4f2ef", "name": "Fundo suave" }
+        {
+          "slug": "lp-marca",
+          "color": "#124559",
+          "name": "Cor da marca"
+        },
+        {
+          "slug": "lp-marca-escura",
+          "color": "#0a2531",
+          "name": "Marca escura"
+        },
+        {
+          "slug": "lp-destaque",
+          "color": "#cf3f2b",
+          "name": "Destaque"
+        },
+        {
+          "slug": "lp-suave",
+          "color": "#f4f2ef",
+          "name": "Fundo suave"
+        }
       ]
     },
     "typography": {
@@ -23,12 +47,12 @@
         {
           "slug": "lp-titulo",
           "name": "Títulos",
-          "fontFamily": "Nunito, ui-rounded, \"Segoe UI\", system-ui, sans-serif"
+          "fontFamily": "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", system-ui, sans-serif"
         },
         {
           "slug": "lp-texto",
           "name": "Texto",
-          "fontFamily": "\"Nunito Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          "fontFamily": "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", system-ui, sans-serif"
         }
       ]
     }
@@ -37,21 +61,25 @@
     "typography": {
       "fontFamily": "var:preset|font-family|lp-texto",
       "fontSize": "1.0625rem",
-      "lineHeight": "1.65"
+      "lineHeight": "1.6"
     },
     "elements": {
       "heading": {
         "typography": {
           "fontFamily": "var:preset|font-family|lp-titulo",
-          "fontWeight": "800",
-          "lineHeight": "1.2"
+          "fontWeight": "700",
+          "lineHeight": "1.08",
+          "letterSpacing": "-0.022em"
         },
-        "color": { "text": "var:preset|color|lp-marca" }
+        "color": {
+          "text": "var:preset|color|lp-marca"
+        }
       },
       "button": {
         "typography": {
           "fontFamily": "var:preset|font-family|lp-titulo",
-          "fontWeight": "700"
+          "fontWeight": "600",
+          "letterSpacing": "-0.01em"
         },
         "color": {
           "background": "var(--wp--preset--color--lp-destaque)",
@@ -65,7 +93,9 @@
         }
       },
       "link": {
-        "color": { "text": "var:preset|color|lp-marca" }
+        "color": {
+          "text": "var:preset|color|lp-marca"
+        }
       }
     }
   }

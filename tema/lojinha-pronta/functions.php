@@ -93,6 +93,32 @@ function lojinha_pronta_analytics() {
 add_action('wp_head', 'lojinha_pronta_analytics');
 
 /**
+ * Barra de aviso no topo.
+ *
+ * Sai no wp_body_open, antes do cabeçalho. Não existe quando o texto está
+ * vazio: barra de aviso sem aviso é uma tarja colorida sem função.
+ */
+function lojinha_pronta_aviso() {
+    $texto = trim((string) lojinha_pronta_config('aviso'));
+
+    if ($texto === '') {
+        return;
+    }
+
+    $link = trim((string) lojinha_pronta_config('aviso_link'));
+    ?>
+<div class="lp-aviso">
+    <?php if ($link !== '') : ?>
+  <a href="<?php echo esc_url($link); ?>"><?php echo esc_html($texto); ?></a>
+    <?php else : ?>
+  <span><?php echo esc_html($texto); ?></span>
+    <?php endif; ?>
+</div>
+    <?php
+}
+add_action('wp_body_open', 'lojinha_pronta_aviso');
+
+/**
  * Botão flutuante de WhatsApp e crédito de rodapé.
  *
  * Saem no wp_footer, que é o último ponto antes do </body> — depois do rodapé
@@ -143,6 +169,10 @@ add_action('wp_footer', 'lojinha_pronta_rodape');
  */
 function lojinha_pronta_css_rodape() {
     $css = '
+.lp-aviso{padding:.7rem 1rem;text-align:center;font-size:.875rem;font-weight:500;
+  background:var(--wp--preset--color--lp-marca-escura,#0a2531);
+  color:var(--wp--preset--color--lp-suave,#f4f2ef)}
+.lp-aviso a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .lp-zap{position:fixed;right:16px;bottom:16px;z-index:9990;display:grid;place-items:center;
   width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;
   box-shadow:0 6px 20px rgba(0,0,0,.25);transition:transform .3s ease}
