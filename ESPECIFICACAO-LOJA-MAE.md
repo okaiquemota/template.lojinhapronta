@@ -417,10 +417,36 @@ de cada decisão jurídica estão no `paginas/LEIA-ME.md`.
 
 ---
 
-## Parte 4 — Exportar
+## Parte 4 — Limpar e exportar
+
+Tudo que está no banco viaja no `.wpress` e reaparece na loja de cada cliente.
+
+**Limpeza**
+
+- [ ] **Produtos → Todos os produtos**: selecionar todos → Mover para a lixeira
+- [ ] **Lixeira → Esvaziar** *(produto na lixeira também viaja)*
+- [ ] **Mídia**: apagar as imagens que vieram com os produtos de teste
+- [ ] **Páginas → Lixeira** e **Posts → Lixeira**: esvaziar as duas
+- [ ] **Comentários**: apagar o comentário de exemplo do WordPress
+- [ ] **Usuários**: só o administrador — nenhum cliente de teste
+- [ ] **WooCommerce → Pedidos**: vazio
+
+**Conferir que continua fechada**
+
+- [ ] "Sugerir aos mecanismos de busca..." **marcado**
+- [ ] Modo **"Em breve" do WooCommerce ligado**
+
+> Os dois ficam ligados na mãe de propósito, e desligá-los é passo do checklist
+> de entrega. Loja-mãe indexada pelo Google é a mesma página aparecendo em toda
+> busca do nicho, competindo com a loja da sua própria cliente.
+
+**Exportar**
 
 - [ ] All-in-One WP Migration → **Exportar para arquivo**
 - [ ] Guardar como `loja-mae-v1.wpress` com a data
+- [ ] **Conferir o tamanho do arquivo.** A versão gratuita do plugin tem limite
+      de importação: um `.wpress` grande demais não sobe na hospedagem da
+      cliente. Sem produto e sem mídia, a mãe deve ficar bem abaixo disso.
 - [ ] Anotar a versão em `versoes.md`: o que mudou e quando
 
 > Toda correção descoberta numa entrega volta **para a loja-mãe** e vira `v2`.
