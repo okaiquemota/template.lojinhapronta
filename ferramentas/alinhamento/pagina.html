@@ -1,0 +1,29 @@
+<!doctype html><meta charset="utf-8">
+<style>
+/* aproximação do que o Twenty Twenty-Five gera: recuo na raiz, largura
+   máxima nos filhos dos blocos "constrained" e margem negativa nos alignfull */
+:root{--wp--preset--color--lp-marca:#124559;--wp--preset--color--lp-marca-escura:#0a2531;
+      --wp--preset--color--lp-destaque:#cf3f2b;--wp--preset--color--lp-suave:#f4f2ef;
+      --wp--style--root--padding-left:4.5rem;--wp--style--root--padding-right:4.5rem}
+*{box-sizing:border-box}body{margin:0}
+.wp-site-blocks{padding-left:var(--wp--style--root--padding-left);padding-right:var(--wp--style--root--padding-right)}
+.constrained > *{max-width:1200px;margin-left:auto;margin-right:auto}
+.alignfull{max-width:none;width:auto;
+  margin-left:calc(var(--wp--style--root--padding-left) * -1);
+  margin-right:calc(var(--wp--style--root--padding-right) * -1);
+  padding-left:var(--wp--style--root--padding-left);padding-right:var(--wp--style--root--padding-right)}
+</style>
+<link rel="stylesheet" href="../../tema/lojinha-pronta/style.css">
+<div class="wp-site-blocks">
+  <header class="lp-cabecalho constrained"><div id="a">cabeçalho</div></header>
+  <main class="lp-main constrained">
+    <div class="lp-hero alignfull constrained"><h1 id="b">chamada</h1></div>
+    <div class="lp-secao alignfull constrained"><h2 id="c">seção</h2></div>
+  </main>
+  <footer class="lp-rodape constrained"><div id="d">rodapé</div></footer>
+</div>
+<div class="wp-site-blocks">
+  <header class="lp-cabecalho constrained"><div id="e">cabeçalho</div></header>
+  <main class="lp-loja alignfull constrained"><div id="f">loja</div></main>
+  <footer class="lp-rodape constrained"><div id="g">rodapé</div></footer>
+</div>
