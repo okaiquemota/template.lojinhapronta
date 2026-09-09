@@ -115,3 +115,15 @@ coisas que um print local resolveria em segundos.
 O que ele **não** cobre: qualquer coisa que dependa do WordPress de verdade —
 o que o WooCommerce injeta, o que os plugins mudam, e as fontes do Google, que
 não carregam no ambiente onde o print é gerado. Continua valendo abrir a loja.
+
+### As seis páginas da prévia
+
+`home`, `loja`, `produto`, `conta`, `entrar`, `texto` — em 1440px e 390px, com
+as classes que o WordPress põe no `<body>`, porque várias regras dependem
+delas. O script falha se alguma página estourar na horizontal.
+
+**Carrinho e finalização não estão aí.** O WooCommerce desenha essas duas com
+blocos próprios, complexos demais para eu imitar com fidelidade — e imitar mal
+é pior que não imitar, porque dá confiança falsa. O CSS delas é conservador de
+propósito: encosta em botão, painel e campo, que têm nome estável, e deixa o
+resto de fábrica. Essas duas precisam de olho humano na loja real.

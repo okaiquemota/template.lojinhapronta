@@ -1,0 +1,125 @@
+<!doctype html><html lang="pt-BR" class="lp-js"><meta charset="utf-8">
+<title>Prévia · conta</title>
+<style>
+:root{
+  --wp--preset--color--lp-marca:#124559;
+  --wp--preset--color--lp-marca-escura:#0a2531;
+  --wp--preset--color--lp-destaque:#cf3f2b;
+  --wp--preset--color--lp-suave:#f4f2ef;
+  --wp--preset--font-family--lp-titulo:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --wp--preset--font-family--lp-texto:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --wp--style--root--padding-left:4.5rem;
+  --wp--style--root--padding-right:4.5rem;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--wp--preset--font-family--lp-texto);
+  font-size:1.0625rem;line-height:1.6;
+  color:#1d2327;background:#fff}
+h1,h2,h3{font-family:var(--wp--preset--font-family--lp-titulo);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-0.022em;
+  color:#124559}
+a{color:#124559}
+.wp-element-button,.wp-block-button__link,.button{display:inline-block;padding:.7rem 1.6rem;
+  border:0;border-radius:999px;text-decoration:none;cursor:pointer;
+  font-family:var(--wp--preset--font-family--lp-titulo);font-weight:600;
+  background:#cf3f2b;color:#fff}
+.has-lp-suave-background-color{background-color:#f4f2ef !important}
+.has-lp-marca-color{color:#124559 !important}
+.has-lp-suave-color{color:#f4f2ef !important}
+.has-lp-marca-escura-background-color{background-color:#0a2531 !important}
+.wp-site-blocks{padding-left:var(--wp--style--root--padding-left);padding-right:var(--wp--style--root--padding-right)}
+/* layout "constrained": é assim que o WordPress limita a largura dos filhos */
+.wp-container > *{max-width:1200px;margin-left:auto;margin-right:auto}
+/* e é assim que ele trata largura total — especificidade 0,2,0 */
+.wp-container > .alignfull{max-width:none;width:auto;
+  margin-left:calc(var(--wp--style--root--padding-left) * -1);
+  margin-right:calc(var(--wp--style--root--padding-right) * -1);
+  padding-left:var(--wp--style--root--padding-left);
+  padding-right:var(--wp--style--root--padding-right)}
+.wp-block-columns{display:flex;flex-wrap:wrap;gap:3.5rem}
+.wp-block-column{flex:1}
+@media (max-width:781px){.wp-block-column{flex-basis:100% !important;flex-grow:1}}
+.wp-block-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+</style>
+<link rel="stylesheet" href="../../tema/lojinha-pronta/style.css">
+<body class="woocommerce woocommerce-page woocommerce-account">
+<div class="wp-site-blocks">
+<header class="wp-block-group lp-cabecalho wp-container">
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
+    </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
+  </div>
+</header>
+<main class="wp-block-group wp-container">
+  <h1 class="wp-block-post-title">Minha conta</h1>
+  <div class="woocommerce">
+    <nav class="woocommerce-MyAccount-navigation">
+      <ul>
+        <li class="woocommerce-MyAccount-navigation-link is-active"><a href="#">Painel</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Pedidos</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Downloads</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Detalhes da conta</a></li>
+        <li class="woocommerce-MyAccount-navigation-link"><a href="#">Sair</a></li>
+      </ul>
+    </nav>
+    <div class="woocommerce-MyAccount-content">
+      <p>Olá, <strong>Aline</strong>. Seus arquivos ficam aqui para sempre — baixe quantas vezes precisar.</p>
+      <table class="woocommerce-table woocommerce-table--order-downloads shop_table">
+        <thead><tr><th>Produto</th><th>Downloads restantes</th><th>Expira em</th><th>Baixar</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#">Alfabeto ilustrado</a></td><td>5</td><td>Nunca</td><td><a href="#" class="woocommerce-MyAccount-downloads-file button">alfabeto.pdf</a></td></tr>
+          <tr><td><a href="#">Numerais de 1 a 20</a></td><td>4</td><td>Nunca</td><td><a href="#" class="woocommerce-MyAccount-downloads-file button">numerais.pdf</a></td></tr>
+        </tbody>
+      </table>
+      <h2>Últimos pedidos</h2>
+      <table class="woocommerce-orders-table woocommerce-table shop_table">
+        <thead><tr><th>Pedido</th><th>Data</th><th>Situação</th><th>Total</th><th>Ações</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#">#1042</a></td><td>08/09/2026</td><td>Concluído</td><td>R$&#160;44,80</td><td><a href="#" class="woocommerce-button button view">Ver</a></td></tr>
+          <tr><td><a href="#">#1031</a></td><td>02/09/2026</td><td>Concluído</td><td>R$&#160;19,90</td><td><a href="#" class="woocommerce-button button view">Ver</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+<footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
+  <div class="wp-block-columns">
+    <div class="wp-block-column" style="flex:0 0 40%">
+      <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+      <p style="margin-top:.5rem;font-size:.875rem">Material digital para baixar na hora. Pagamento por Pix, cartão ou boleto.</p>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">A loja</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Todos os produtos</a></li><li><a href="#">Sobre</a></li><li><a href="#">Contato</a></li><li><a href="#">Minha conta</a></li></ul>
+    </div>
+    <div class="wp-block-column">
+      <h2 style="font-size:.875rem;letter-spacing:.05em;text-transform:uppercase">Informações</h2>
+      <ul style="font-size:.875rem"><li><a href="#">Termos de uso</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de reembolso</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<p class="lp-credito" style="margin:0;padding:1.25rem 1rem;font-size:.8rem;display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;border-top:1px solid rgba(255,255,255,.12)">
+  <span>&copy; 2026 Loja do Kiwi</span>
+  <a href="#">Loja criada por Lojinha Pronta</a>
+</p>
+</div>
+
+<script src="../../tema/lojinha-pronta/assets/vida.js"></script>
+</html>

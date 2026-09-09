@@ -10,7 +10,7 @@
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 
 const exigir = createRequire(import.meta.url);
 const aqui = dirname(fileURLToPath(import.meta.url));
@@ -21,6 +21,8 @@ for (const onde of ['playwright', '/opt/node22/lib/node_modules/playwright']) {
   try { pw = exigir(onde); break; } catch { /* tenta o próximo */ }
 }
 if (!pw) { console.error('Falta o playwright: npm i -D playwright'); process.exit(2); }
+
+let falhas = 0;
 
 const navegador = [process.env.CHROME_PATH, '/opt/pw-browsers/chromium-1194/chrome-linux/chrome']
   .find((c) => c && existsSync(c));
@@ -110,7 +112,7 @@ const produtos = CAPAS.map(([t, f, i], n) => `
     <a href="#" class="button add_to_cart_button">Adicionar</a>
   </li>`).join('');
 
-/* ---- a página ---------------------------------------------------------- */
+/* ---- as páginas -------------------------------------------------------- */
 
 const banner = 'data:image/svg+xml,' + encodeURIComponent(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340">
@@ -125,46 +127,69 @@ const banner = 'data:image/svg+xml,' + encodeURIComponent(
      <text x="185" y="268" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="600" fill="${cor['lp-marca']}">Ver a coleção</text>
    </svg>`);
 
-const corpo = readFileSync(join(aqui, 'corpo.html'), 'utf8')
-  .replace('<!--PRODUTOS-->', () => produtos)
-  .replace('BANNER', () => banner);
+const cabecalho = readFileSync(join(aqui, 'paginas', '_cabecalho.html'), 'utf8');
+const rodape = readFileSync(join(aqui, 'paginas', '_rodape.html'), 'utf8');
 
-writeFileSync(join(aqui, 'previa.html'), `<!doctype html><html lang="pt-BR" class="lp-js"><meta charset="utf-8">
-<title>Prévia do tema</title>
+// O WordPress põe estas classes no <body>, e várias regras dependem delas.
+const PAGINAS = {
+  home: 'home',
+  loja: 'woocommerce woocommerce-page woocommerce-shop',
+  produto: 'woocommerce woocommerce-page single-product',
+  conta: 'woocommerce woocommerce-page woocommerce-account',
+  entrar: 'woocommerce woocommerce-page woocommerce-account',
+  texto: 'page',
+};
+
+for (const [pagina, classe] of Object.entries(PAGINAS)) {
+  const corpo = readFileSync(join(aqui, 'paginas', `${pagina}.html`), 'utf8')
+    .replace('<!--CABECALHO-->', () => cabecalho)
+    .replace('<!--RODAPE-->', () => rodape)
+    .replace('<!--PRODUTOS4-->', () => produtos.split('</li>').slice(0, 4).join('</li>') + '</li>')
+    .replace('<!--PRODUTOS-->', () => produtos)
+    .replace('BANNER', () => banner)
+    .replace('CAPA', () => capa(...CAPAS[0]));
+
+  writeFileSync(join(aqui, `previa-${pagina}.html`), `<!doctype html><html lang="pt-BR" class="lp-js"><meta charset="utf-8">
+<title>Prévia · ${pagina}</title>
 <style>${cssDoWordPress}</style>
 <link rel="stylesheet" href="../../tema/lojinha-pronta/style.css">
+<body class="${classe}">
 ${corpo}
 <script src="../../tema/lojinha-pronta/assets/vida.js"></script>
 </html>`);
+}
 
 const b = await pw.chromium.launch(navegador ? { executablePath: navegador } : {});
-for (const [nome, largura] of [['desktop', 1440], ['celular', 390]]) {
-  const p = await b.newPage({ viewport: { width: largura, height: largura === 390 ? 844 : 900 } });
-  await p.goto('file://' + join(aqui, 'previa.html'));
-  // Rola de meia tela em meia tela: o IntersectionObserver só dispara para o
-  // que passa mesmo pela janela, e um salto direto ao fim deixa o miolo
-  // invisível no print.
-  await p.evaluate(async () => {
-    const passo = window.innerHeight / 2;
-    for (let y = 0; y < document.body.scrollHeight; y += passo) {
-      window.scrollTo(0, y);
-      await new Promise((r) => setTimeout(r, 120));
-    }
-    window.scrollTo(0, 0);
-    await new Promise((r) => setTimeout(r, 500));
-  });
-  await p.screenshot({ path: join(aqui, `previa-${nome}.png`), fullPage: true });
 
-  // Recortes para olhar de perto: a página inteira vira miniatura e esconde
-  // exatamente o acabamento que eu preciso conferir.
-  if (nome === 'desktop') {
-    for (const [parte, seletor] of [['topo', '.lp-cabecalho'], ['banner', '.lp-faixa-banner'], ['vitrine', '.lp-novidades']]) {
-      await p.locator(seletor).screenshot({ path: join(aqui, `corte-${parte}.png`) });
+for (const pagina of Object.keys(PAGINAS)) {
+  for (const [nome, largura] of [['desktop', 1440], ['celular', 390]]) {
+    const p = await b.newPage({ viewport: { width: largura, height: largura === 390 ? 844 : 900 } });
+    await p.goto('file://' + join(aqui, `previa-${pagina}.html`));
+
+    // Rola de meia tela em meia tela: o IntersectionObserver só dispara para o
+    // que passa mesmo pela janela, e um salto direto ao fim deixa o miolo
+    // invisível no print.
+    await p.evaluate(async () => {
+      const passo = window.innerHeight / 2;
+      for (let y = 0; y < document.body.scrollHeight; y += passo) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 90));
+      }
+      window.scrollTo(0, 0);
+      await new Promise((r) => setTimeout(r, 400));
+    });
+
+    await p.screenshot({ path: join(aqui, 'prints', `${pagina}-${nome}.png`), fullPage: true });
+
+    const larguraDoc = await p.evaluate(() => document.documentElement.scrollWidth);
+    if (larguraDoc > largura) {
+      console.log(`  ⚠ ${pagina} ${nome}: ESTOURA na horizontal, ${larguraDoc}px`);
+      falhas += 1;
     }
+    await p.close();
   }
-  const largura_doc = await p.evaluate(() => document.documentElement.scrollWidth);
-  console.log(`${nome} ${largura}px → previa-${nome}.png` +
-    (largura_doc > largura ? `  ⚠ ESTOURA na horizontal: ${largura_doc}px` : '  ✔ sem estouro'));
-  await p.close();
+  console.log(`${pagina} → prints/${pagina}-desktop.png · prints/${pagina}-celular.png`);
 }
+
 await b.close();
+process.exit(falhas ? 1 : 0);
