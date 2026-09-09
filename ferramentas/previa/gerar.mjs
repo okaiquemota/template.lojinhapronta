@@ -112,7 +112,22 @@ const produtos = CAPAS.map(([t, f, i], n) => `
 
 /* ---- a página ---------------------------------------------------------- */
 
-const corpo = readFileSync(join(aqui, 'corpo.html'), 'utf8').replace('<!--PRODUTOS-->', () => produtos);
+const banner = 'data:image/svg+xml,' + encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340">
+     <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+       <stop offset="0" stop-color="${cor['lp-marca']}"/><stop offset="1" stop-color="${cor['lp-marca-escura']}"/>
+     </linearGradient></defs>
+     <rect width="1200" height="340" fill="url(#g)"/>
+     <circle cx="1030" cy="70" r="150" fill="${cor['lp-destaque']}" opacity=".28"/>
+     <text x="70" y="150" font-family="sans-serif" font-size="46" font-weight="700" fill="#fff">Kits de atividades bíblicas</text>
+     <text x="70" y="200" font-family="sans-serif" font-size="22" fill="#fff" opacity=".8">Prontos para imprimir · entrega na hora</text>
+     <rect x="70" y="235" width="230" height="52" rx="26" fill="#fff"/>
+     <text x="185" y="268" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="600" fill="${cor['lp-marca']}">Ver a coleção</text>
+   </svg>`);
+
+const corpo = readFileSync(join(aqui, 'corpo.html'), 'utf8')
+  .replace('<!--PRODUTOS-->', () => produtos)
+  .replace('BANNER', () => banner);
 
 writeFileSync(join(aqui, 'previa.html'), `<!doctype html><html lang="pt-BR" class="lp-js"><meta charset="utf-8">
 <title>Prévia do tema</title>
@@ -143,7 +158,7 @@ for (const [nome, largura] of [['desktop', 1440], ['celular', 390]]) {
   // Recortes para olhar de perto: a página inteira vira miniatura e esconde
   // exatamente o acabamento que eu preciso conferir.
   if (nome === 'desktop') {
-    for (const [parte, seletor] of [['chamada', '.lp-hero'], ['vitrine', '.lp-vitrine'], ['passos', '.lp-passos']]) {
+    for (const [parte, seletor] of [['topo', '.lp-cabecalho'], ['banner', '.lp-faixa-banner'], ['vitrine', '.lp-novidades']]) {
       await p.locator(seletor).screenshot({ path: join(aqui, `corte-${parte}.png`) });
     }
   }

@@ -81,6 +81,21 @@ Para trocar: muda a URL no `lojinha_pronta_estilos()` e os dois nomes em
 `settings.typography.fontFamilies` do `theme.json`.
 
 
+## O que muda por cliente sem tocar em bloco
+
+Tudo no `config-cliente.php`:
+
+| campo | o que faz |
+| --- | --- |
+| `aviso` · `aviso_link` | tarja escura no topo. Vazio, não existe |
+| `banner_imagem` · `banner_imagem_celular` · `banner_link` · `banner_alt` | banner da home. Sem imagem, a home abre direto nas categorias |
+| `whatsapp` · `whatsapp_texto` | botão flutuante **e** o link "Compre pelo WhatsApp" no menu |
+| `analytics_ga4` | GA4. Vazio não carrega script nenhum |
+| `creditos` | o crédito no rodapé |
+
+Nenhum deles vai ao ar preenchido na loja-mãe: banner com arte de banco de
+imagem e tarja com promoção inventada são piores que a ausência dos dois.
+
 ## Ver o tema sem WordPress
 
 ```

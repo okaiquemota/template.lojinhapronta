@@ -31,6 +31,25 @@ return [
     'aviso_link' => '',
 
     /*
+     * Banner da página inicial. Sem imagem, o banner não existe — e a home
+     * abre direto nas categorias, que é o certo enquanto a cliente não tem
+     * arte. Banner com imagem genérica de banco de imagem é pior que banner
+     * nenhum.
+     *
+     * Endereço completo do arquivo, depois de subir em Mídia.
+     */
+    'banner_imagem' => '',
+
+    // Versão vertical, para o celular. Vazio usa a mesma imagem.
+    'banner_imagem_celular' => '',
+
+    // Para onde o banner leva. Ex.: '/categoria-produto/alfabetizacao/'
+    'banner_link' => '',
+
+    // Texto alternativo da imagem, para quem usa leitor de tela.
+    'banner_alt' => '',
+
+    /*
      * Crédito "Loja criada por Lojinha Pronta" no rodapé.
      *
      * É o motor de aquisição do negócio: quem navega numa loja do nicho é o

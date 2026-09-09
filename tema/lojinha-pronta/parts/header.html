@@ -1,10 +1,33 @@
-<!-- wp:group {"tagName":"header","className":"lp-cabecalho","style":{"spacing":{"padding":{"top":"1.25rem","bottom":"1.25rem"}}},"layout":{"type":"constrained","contentSize":"1200px","wideSize":"1200px"}} -->
-<header class="wp-block-group lp-cabecalho" style="padding-top:1.25rem;padding-bottom:1.25rem"><!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-<div class="wp-block-group"><!-- wp:site-title {"level":0,"style":{"typography":{"fontSize":"1.375rem","fontStyle":"normal","fontWeight":"700"}}} /-->
+<!-- wp:group {"tagName":"header","className":"lp-cabecalho","layout":{"type":"constrained","contentSize":"1200px","wideSize":"1200px"}} -->
+<header class="wp-block-group lp-cabecalho"><!-- wp:group {"className":"lp-cabecalho__topo","style":{"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<div class="wp-block-group lp-cabecalho__topo"><!-- wp:site-title {"level":0,"style":{"typography":{"fontSize":"1.25rem","fontStyle":"normal","fontWeight":"700"}}} /-->
 
-<!-- wp:group {"className":"lp-cabecalho__menu","style":{"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
+<!-- wp:html -->
+<form role="search" method="get" class="lp-busca" action="/">
+  <label class="screen-reader-text" for="lp-busca-campo">Buscar na loja</label>
+  <input id="lp-busca-campo" type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+  <input type="hidden" name="post_type" value="product">
+  <button type="submit">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+    <span class="screen-reader-text">Buscar</span>
+  </button>
+</form>
+<!-- /wp:html -->
+
+<!-- wp:group {"className":"lp-cabecalho__conta","style":{"spacing":{"blockGap":"1rem"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group lp-cabecalho__conta"><!-- wp:woocommerce/customer-account {"displayStyle":"icon_and_text"} /-->
+
+<!-- wp:woocommerce/mini-cart /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"lp-cabecalho__menu","style":{"spacing":{"blockGap":"1.75rem"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"}} -->
 <div class="wp-block-group lp-cabecalho__menu"><!-- wp:paragraph -->
-<p><a href="/loja/">Loja</a></p>
+<p><a href="/">Início</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="/loja/">Produtos</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -12,12 +35,11 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><a href="/contato/">Contato</a></p>
+<p><a href="/contato/">Dúvidas</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only"} /-->
-
-<!-- wp:woocommerce/mini-cart /--></div>
-<!-- /wp:group --></div>
+<!-- wp:shortcode -->
+[lp_whatsapp]
+<!-- /wp:shortcode --></div>
 <!-- /wp:group --></header>
 <!-- /wp:group -->

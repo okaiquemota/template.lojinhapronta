@@ -303,8 +303,10 @@ Os dois **vêm do tema filho**, em `parts/header.html` e `parts/footer.html`.
 Não se montam clicando.
 
 - [ ] Confirmar que a pasta `parts/` está dentro de `wp-content/themes/lojinha-pronta/`
-- [ ] No topo: título do site e **três links** — Loja, Sobre, Contato — mais os
-      ícones de conta e carrinho
+- [ ] No topo, **duas fileiras**: marca, campo de busca e "Minha conta" na de
+      cima; Início, Produtos, Sobre, Dúvidas e o link de WhatsApp na de baixo
+- [ ] A home abre com **banner** (se houver), **categorias** e **produtos** —
+      nunca com texto de venda
 - [ ] No rodapé: título do site, as duas colunas de links, e a faixa de crédito
       com o ano corrente por baixo
 - [ ] Clicar nos dez links e conferir que nenhum dá 404
@@ -316,8 +318,13 @@ Não se montam clicando.
 > Termos de uso" no topo. Ninguém põe "Finalizar compra" num menu, e página
 > jurídica é rodapé.
 >
-> Três links também resolvem o celular: cabem na tela sem hambúrguer, que é um
-> componente a menos para quebrar.
+> Cinco links cabem na tela do celular sem hambúrguer, que é um componente a
+> menos para quebrar. A busca ganha a linha inteira lá.
+>
+> **A home é loja, não página de vendas.** Quem entra quer ver o que a loja
+> vende; discurso sobre como funciona a compra vai numa faixa curta perto do
+> fim, e só. O layout segue a linguagem das lojas brasileiras: fundo cinza,
+> assuntos em cartões brancos arredondados.
 
 > **O rodapé do Twenty Twenty-Five é uma armadilha.** Ele traz oito links do
 > site de demonstração do tema — Blog, Sobre, Perguntas frequentes, Autores,

@@ -144,6 +144,67 @@ function lojinha_pronta_aviso() {
 add_action('wp_body_open', 'lojinha_pronta_aviso');
 
 /**
+ * Link de WhatsApp para usar no meio do texto ou no menu.
+ *
+ * Devolve vazio quando não há número: menu com item que não leva a lugar
+ * nenhum é pior que menu sem o item.
+ */
+function lojinha_pronta_link_whatsapp($atributos = []) {
+    $numero = preg_replace('/\D/', '', (string) lojinha_pronta_config('whatsapp'));
+
+    if (empty($numero)) {
+        return '';
+    }
+
+    $atributos = shortcode_atts(['texto' => 'Compre pelo WhatsApp'], $atributos);
+    $texto     = lojinha_pronta_config('whatsapp_texto');
+    $link      = 'https://wa.me/' . $numero;
+
+    if (!empty($texto)) {
+        $link .= '?text=' . rawurlencode($texto);
+    }
+
+    return '<a class="lp-zap-link" href="' . esc_url($link) . '" target="_blank" rel="noopener noreferrer">'
+        . esc_html($atributos['texto']) . '</a>';
+}
+add_shortcode('lp_whatsapp', 'lojinha_pronta_link_whatsapp');
+
+/**
+ * Banner da página inicial, como atalho.
+ *
+ * Atalho e não bloco porque o conteúdo vem do config-cliente.php: a cliente
+ * troca a arte da campanha sem abrir o editor, e a loja-mãe não viaja com
+ * imagem de exemplo dentro.
+ */
+function lojinha_pronta_banner() {
+    $imagem = trim((string) lojinha_pronta_config('banner_imagem'));
+
+    if ($imagem === '') {
+        return '';
+    }
+
+    $celular = trim((string) lojinha_pronta_config('banner_imagem_celular'));
+    $link    = trim((string) lojinha_pronta_config('banner_link'));
+    $alt     = trim((string) lojinha_pronta_config('banner_alt'));
+
+    $figura = '<picture>';
+
+    if ($celular !== '') {
+        $figura .= '<source media="(max-width: 640px)" srcset="' . esc_url($celular) . '">';
+    }
+
+    $figura .= '<img src="' . esc_url($imagem) . '" alt="' . esc_attr($alt) . '" loading="eager" decoding="async">';
+    $figura .= '</picture>';
+
+    if ($link !== '') {
+        $figura = '<a href="' . esc_url($link) . '">' . $figura . '</a>';
+    }
+
+    return '<div class="lp-banner">' . $figura . '</div>';
+}
+add_shortcode('lp_banner', 'lojinha_pronta_banner');
+
+/**
  * Botão flutuante de WhatsApp e crédito de rodapé.
  *
  * Saem no wp_footer, que é o último ponto antes do </body> — depois do rodapé

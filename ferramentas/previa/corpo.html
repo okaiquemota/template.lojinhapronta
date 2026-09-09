@@ -1,65 +1,61 @@
 <div class="wp-site-blocks">
 
 <header class="wp-block-group lp-cabecalho wp-container">
-  <div class="wp-block-group" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;padding-top:1.25rem;padding-bottom:1.25rem">
-    <p class="wp-block-site-title" style="margin:0;font-size:1.375rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
-    <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem">
-      <p><a href="#">Loja</a></p>
-      <p><a href="#">Sobre</a></p>
-      <p><a href="#">Contato</a></p>
-      <a href="#" aria-label="Minha conta">&#128100;</a>
-      <a href="#" aria-label="Carrinho">&#128722;</a>
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
     </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
   </div>
 </header>
 
 <main class="wp-block-group lp-main wp-container">
 
-  <div class="wp-block-group alignfull lp-hero wp-container">
-    <p class="lp-rotulo lp-revela">Material digital para baixar</p>
-    <h1 class="wp-block-heading lp-revela">Material pronto para baixar e usar hoje</h1>
-    <p class="lp-hero__linha lp-revela">Você escolhe, paga por Pix, cartão ou boleto, e o arquivo chega na hora. Sem espera e sem frete.</p>
-    <div class="wp-block-buttons lp-revela">
-      <div class="wp-block-button"><a class="wp-block-button__link has-lp-marca-color has-lp-suave-background-color wp-element-button" href="#">Ver todos os materiais</a></div>
-      <div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#">Como funciona</a></div>
-    </div>
-    <ul class="lp-provas lp-revela">
-      <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg> Entrega na hora do pagamento</li>
-      <li><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM3 11h18"/></svg> Pix, cartão ou boleto</li>
-      <li><svg viewBox="0 0 24 24"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg> Baixe de novo quando quiser</li>
-    </ul>
+  <div class="wp-block-group alignfull lp-faixa-banner wp-container">
+    <div class="lp-banner"><a href="#"><img src="BANNER" alt=""></a></div>
   </div>
 
-  <div class="wp-block-group alignfull lp-secao lp-vitrine wp-container">
-    <p class="lp-rotulo lp-revela">Na loja</p>
-    <h2 class="wp-block-heading lp-revela">Últimos materiais</h2>
-    <div class="woocommerce columns-4">
-      <ul class="products columns-4"><!--PRODUTOS--></ul>
-    </div>
-    <div class="wp-block-buttons lp-revela lp-centro">
-      <div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#">Ver a loja inteira</a></div>
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-categorias wp-container">
+      <h2 class="wp-block-heading lp-revela">Categorias</h2>
+      <ul class="products columns-4">
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Alfabetização <mark class="count">(12)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Educação especial <mark class="count">(8)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Escola bíblica <mark class="count">(6)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Datas comemorativas <mark class="count">(9)</mark></h2></a></li>
+      </ul>
     </div>
   </div>
 
-  <div class="wp-block-group alignfull lp-secao lp-passos has-lp-suave-background-color wp-container" id="como-funciona">
-    <p class="lp-rotulo lp-revela">Simples assim</p>
-    <h2 class="wp-block-heading lp-revela">Como funciona</h2>
-    <div class="lp-passos__grade">
-      <article class="lp-passo lp-revela" style="--i:0">
-        <p class="lp-passo__numero">1</p>
-        <h3>Escolha o material</h3>
-        <p>Cada produto mostra o que vem no arquivo, o formato e o número de páginas. Ficou em dúvida se serve para a sua turma? Pergunte antes de comprar.</p>
-      </article>
-      <article class="lp-passo lp-revela" style="--i:1">
-        <p class="lp-passo__numero">2</p>
-        <h3>Pague como preferir</h3>
-        <p>Pix, cartão ou boleto. Pix e cartão liberam o arquivo em segundos; boleto leva até 3 dias úteis para compensar.</p>
-      </article>
-      <article class="lp-passo lp-revela" style="--i:2">
-        <p class="lp-passo__numero">3</p>
-        <h3>Baixe e use</h3>
-        <p>O link chega no seu e-mail na hora, e o arquivo fica guardado em <a href="#">Minha conta</a> para você baixar de novo sempre que precisar.</p>
-      </article>
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-novidades wp-container">
+      <h2 class="wp-block-heading lp-revela">Novidades</h2>
+      <div class="woocommerce columns-4"><ul class="products columns-4"><!--PRODUTOS--></ul></div>
+      <div class="wp-block-buttons lp-revela lp-centro">
+        <div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#">Ver a loja inteira</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-garantias wp-container">
+      <ul class="lp-provas lp-revela">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><strong>Entrega na hora</strong> Assim que o pagamento é confirmado</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM3 11h18"/></svg><span><strong>Pix, cartão ou boleto</strong> Pagamento em ambiente seguro</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg><span><strong>Baixe quando quiser</strong> Seus arquivos ficam em Minha conta</span></li>
+      </ul>
     </div>
   </div>
 

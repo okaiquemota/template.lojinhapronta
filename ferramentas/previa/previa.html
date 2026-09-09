@@ -47,40 +47,48 @@ a{color:#124559}
 <div class="wp-site-blocks">
 
 <header class="wp-block-group lp-cabecalho wp-container">
-  <div class="wp-block-group" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;padding-top:1.25rem;padding-bottom:1.25rem">
-    <p class="wp-block-site-title" style="margin:0;font-size:1.375rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
-    <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem">
-      <p><a href="#">Loja</a></p>
-      <p><a href="#">Sobre</a></p>
-      <p><a href="#">Contato</a></p>
-      <a href="#" aria-label="Minha conta">&#128100;</a>
-      <a href="#" aria-label="Carrinho">&#128722;</a>
+  <div class="wp-block-group lp-cabecalho__topo" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+    <p class="wp-block-site-title" style="margin:0;font-size:1.25rem;font-weight:700"><a href="#">Loja do Kiwi</a></p>
+    <form role="search" method="get" class="lp-busca" action="/">
+      <input type="search" name="s" placeholder="Buscar kits, atividades, materiais..." autocomplete="off">
+      <button type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></button>
+    </form>
+    <div class="wp-block-group lp-cabecalho__conta" style="display:flex;align-items:center;gap:1rem">
+      <a href="#">&#128100; Minha conta</a>
+      <a href="#">&#128722;</a>
     </div>
+  </div>
+  <div class="wp-block-group lp-cabecalho__menu" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.75rem">
+    <p><a href="#">Início</a></p>
+    <p><a href="#">Produtos</a></p>
+    <p><a href="#">Sobre</a></p>
+    <p><a href="#">Dúvidas</a></p>
+    <a class="lp-zap-link" href="#">Compre pelo WhatsApp</a>
   </div>
 </header>
 
 <main class="wp-block-group lp-main wp-container">
 
-  <div class="wp-block-group alignfull lp-hero wp-container">
-    <p class="lp-rotulo lp-revela">Material digital para baixar</p>
-    <h1 class="wp-block-heading lp-revela">Material pronto para baixar e usar hoje</h1>
-    <p class="lp-hero__linha lp-revela">Você escolhe, paga por Pix, cartão ou boleto, e o arquivo chega na hora. Sem espera e sem frete.</p>
-    <div class="wp-block-buttons lp-revela">
-      <div class="wp-block-button"><a class="wp-block-button__link has-lp-marca-color has-lp-suave-background-color wp-element-button" href="#">Ver todos os materiais</a></div>
-      <div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#">Como funciona</a></div>
-    </div>
-    <ul class="lp-provas lp-revela">
-      <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg> Entrega na hora do pagamento</li>
-      <li><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM3 11h18"/></svg> Pix, cartão ou boleto</li>
-      <li><svg viewBox="0 0 24 24"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg> Baixe de novo quando quiser</li>
-    </ul>
+  <div class="wp-block-group alignfull lp-faixa-banner wp-container">
+    <div class="lp-banner"><a href="#"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20340%22%3E%0A%20%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23124559%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230a2531%22%2F%3E%0A%20%20%20%20%20%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%20%3Crect%20width%3D%221200%22%20height%3D%22340%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%221030%22%20cy%3D%2270%22%20r%3D%22150%22%20fill%3D%22%23cf3f2b%22%20opacity%3D%22.28%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%2270%22%20y%3D%22150%22%20font-family%3D%22sans-serif%22%20font-size%3D%2246%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%3EKits%20de%20atividades%20b%C3%ADblicas%3C%2Ftext%3E%0A%20%20%20%20%20%3Ctext%20x%3D%2270%22%20y%3D%22200%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20fill%3D%22%23fff%22%20opacity%3D%22.8%22%3EProntos%20para%20imprimir%20%C2%B7%20entrega%20na%20hora%3C%2Ftext%3E%0A%20%20%20%20%20%3Crect%20x%3D%2270%22%20y%3D%22235%22%20width%3D%22230%22%20height%3D%2252%22%20rx%3D%2226%22%20fill%3D%22%23fff%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22185%22%20y%3D%22268%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2218%22%20font-weight%3D%22600%22%20fill%3D%22%23124559%22%3EVer%20a%20cole%C3%A7%C3%A3o%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt=""></a></div>
   </div>
 
-  <div class="wp-block-group alignfull lp-secao lp-vitrine wp-container">
-    <p class="lp-rotulo lp-revela">Na loja</p>
-    <h2 class="wp-block-heading lp-revela">Últimos materiais</h2>
-    <div class="woocommerce columns-4">
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-categorias wp-container">
+      <h2 class="wp-block-heading lp-revela">Categorias</h2>
       <ul class="products columns-4">
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Alfabetização <mark class="count">(12)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Educação especial <mark class="count">(8)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Escola bíblica <mark class="count">(6)</mark></h2></a></li>
+        <li class="product-category product"><a href="#"><h2 class="woocommerce-loop-category__title">Datas comemorativas <mark class="count">(9)</mark></h2></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-novidades wp-container">
+      <h2 class="wp-block-heading lp-revela">Novidades</h2>
+      <div class="woocommerce columns-4"><ul class="products columns-4">
   <li class="product">
     <a href="#" class="woocommerce-LoopProduct-link">
       <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%0A%20%20%20%20%20%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23e8d9c5%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%2246%22%20width%3D%22228%22%20height%3D%22308%22%20rx%3D%2210%22%20fill%3D%22%23fff%22%20opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%2282%22%20width%3D%22180%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.85%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22106%22%20width%3D%22130%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22150%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22170%22%20width%3D%22180%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Crect%20x%3D%22110%22%20y%3D%22190%22%20width%3D%22120%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.2%22%2F%3E%0A%20%20%20%20%20%3Ccircle%20cx%3D%22200%22%20cy%3D%22266%22%20r%3D%2242%22%20fill%3D%22%238c5a3c%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%20%3Ctext%20x%3D%22200%22%20y%3D%22336%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%0A%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%238c5a3c%22%20opacity%3D%22.75%22%3EAlfabeto%20ilustrado%3C%2Ftext%3E%0A%20%20%20%3C%2Fsvg%3E" alt="">
@@ -144,32 +152,20 @@ a{color:#124559}
       <span class="price"><span class="woocommerce-Price-amount">R$&nbsp;15,00</span></span>
     </a>
     <a href="#" class="button add_to_cart_button">Adicionar</a>
-  </li></ul>
-    </div>
-    <div class="wp-block-buttons lp-revela lp-centro">
-      <div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#">Ver a loja inteira</a></div>
+  </li></ul></div>
+      <div class="wp-block-buttons lp-revela lp-centro">
+        <div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#">Ver a loja inteira</a></div>
+      </div>
     </div>
   </div>
 
-  <div class="wp-block-group alignfull lp-secao lp-passos has-lp-suave-background-color wp-container" id="como-funciona">
-    <p class="lp-rotulo lp-revela">Simples assim</p>
-    <h2 class="wp-block-heading lp-revela">Como funciona</h2>
-    <div class="lp-passos__grade">
-      <article class="lp-passo lp-revela" style="--i:0">
-        <p class="lp-passo__numero">1</p>
-        <h3>Escolha o material</h3>
-        <p>Cada produto mostra o que vem no arquivo, o formato e o número de páginas. Ficou em dúvida se serve para a sua turma? Pergunte antes de comprar.</p>
-      </article>
-      <article class="lp-passo lp-revela" style="--i:1">
-        <p class="lp-passo__numero">2</p>
-        <h3>Pague como preferir</h3>
-        <p>Pix, cartão ou boleto. Pix e cartão liberam o arquivo em segundos; boleto leva até 3 dias úteis para compensar.</p>
-      </article>
-      <article class="lp-passo lp-revela" style="--i:2">
-        <p class="lp-passo__numero">3</p>
-        <h3>Baixe e use</h3>
-        <p>O link chega no seu e-mail na hora, e o arquivo fica guardado em <a href="#">Minha conta</a> para você baixar de novo sempre que precisar.</p>
-      </article>
+  <div class="wp-block-group alignfull lp-secao wp-container">
+    <div class="wp-block-group lp-cartao lp-garantias wp-container">
+      <ul class="lp-provas lp-revela">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><strong>Entrega na hora</strong> Assim que o pagamento é confirmado</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM3 11h18"/></svg><span><strong>Pix, cartão ou boleto</strong> Pagamento em ambiente seguro</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg><span><strong>Baixe quando quiser</strong> Seus arquivos ficam em Minha conta</span></li>
+      </ul>
     </div>
   </div>
 

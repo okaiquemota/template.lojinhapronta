@@ -1,96 +1,64 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
 <!-- wp:group {"tagName":"main","className":"lp-main","layout":{"type":"constrained"}} -->
-<main class="wp-block-group lp-main"><!-- wp:group {"className":"lp-hero","align":"full","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull lp-hero"><!-- wp:html -->
-<p class="lp-rotulo lp-revela">Material digital para baixar</p>
-<!-- /wp:html -->
-
-<!-- wp:heading {"level":1,"className":"lp-revela"} -->
-<h1 class="wp-block-heading lp-revela">Material pronto para baixar e usar hoje</h1>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"className":"lp-hero__linha lp-revela"} -->
-<p class="lp-hero__linha lp-revela">Você escolhe, paga por Pix, cartão ou boleto, e o arquivo chega na hora. Sem espera e sem frete.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:buttons {"className":"lp-revela"} -->
-<div class="wp-block-buttons lp-revela"><!-- wp:button {"backgroundColor":"lp-suave","textColor":"lp-marca"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-lp-marca-color has-lp-suave-background-color has-text-color has-background wp-element-button" href="/loja/">Ver todos os materiais</a></div>
-<!-- /wp:button -->
-
-<!-- wp:button {"className":"is-style-outline lp-botao-vazado"} -->
-<div class="wp-block-button is-style-outline lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="#como-funciona">Como funciona</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons -->
-
-<!-- wp:html -->
-<ul class="lp-provas lp-revela">
-  <li>
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12l5 5L20 6"/></svg>
-    Entrega na hora do pagamento
-  </li>
-  <li>
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h18v10H3zM3 11h18"/></svg>
-    Pix, cartão ou boleto
-  </li>
-  <li>
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
-    Baixe de novo quando quiser
-  </li>
-</ul>
-<!-- /wp:html --></div>
+<main class="wp-block-group lp-main"><!-- wp:group {"className":"lp-faixa-banner","align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull lp-faixa-banner"><!-- wp:shortcode -->
+[lp_banner]
+<!-- /wp:shortcode --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"lp-secao lp-vitrine","align":"full","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull lp-secao lp-vitrine"><!-- wp:html -->
-<p class="lp-rotulo lp-revela">Na loja</p>
-<!-- /wp:html -->
-
-<!-- wp:heading {"className":"lp-revela"} -->
-<h2 class="wp-block-heading lp-revela">Últimos materiais</h2>
+<!-- wp:group {"className":"lp-secao","align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull lp-secao"><!-- wp:group {"className":"lp-cartao lp-categorias","layout":{"type":"constrained"}} -->
+<div class="wp-block-group lp-cartao lp-categorias"><!-- wp:heading {"level":2,"className":"lp-revela"} -->
+<h2 class="wp-block-heading lp-revela">Categorias</h2>
 <!-- /wp:heading -->
 
 <!-- wp:shortcode -->
-[products limit="8" columns="4" orderby="date" order="DESC"]
+[product_categories number="8" parent="0" hide_empty="1" columns="4"]
+<!-- /wp:shortcode --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"lp-secao","align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull lp-secao"><!-- wp:group {"className":"lp-cartao lp-novidades","layout":{"type":"constrained"}} -->
+<div class="wp-block-group lp-cartao lp-novidades"><!-- wp:heading {"level":2,"className":"lp-revela"} -->
+<h2 class="wp-block-heading lp-revela">Novidades</h2>
+<!-- /wp:heading -->
+
+<!-- wp:shortcode -->
+[products limit="12" columns="4" orderby="date" order="DESC"]
 <!-- /wp:shortcode -->
 
 <!-- wp:buttons {"className":"lp-revela lp-centro"} -->
-<div class="wp-block-buttons lp-revela lp-centro"><!-- wp:button {"className":"is-style-outline lp-botao-vazado"} -->
-<div class="wp-block-button is-style-outline lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="/loja/">Ver a loja inteira</a></div>
+<div class="wp-block-buttons lp-revela lp-centro"><!-- wp:button {"className":"lp-botao-vazado"} -->
+<div class="wp-block-button lp-botao-vazado"><a class="wp-block-button__link wp-element-button" href="/loja/">Ver a loja inteira</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"lp-secao lp-passos","align":"full","backgroundColor":"lp-suave","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull lp-secao lp-passos has-lp-suave-background-color has-background" id="como-funciona"><!-- wp:html -->
-<p class="lp-rotulo lp-revela">Simples assim</p>
-<!-- /wp:html -->
-
-<!-- wp:heading {"className":"lp-revela"} -->
-<h2 class="wp-block-heading lp-revela">Como funciona</h2>
-<!-- /wp:heading -->
-
-<!-- wp:html -->
-<div class="lp-passos__grade">
-  <article class="lp-passo lp-revela" style="--i:0">
-    <p class="lp-passo__numero">1</p>
-    <h3>Escolha o material</h3>
-    <p>Cada produto mostra o que vem no arquivo, o formato e o número de páginas. Ficou em dúvida se serve para a sua turma? Pergunte antes de comprar.</p>
-  </article>
-  <article class="lp-passo lp-revela" style="--i:1">
-    <p class="lp-passo__numero">2</p>
-    <h3>Pague como preferir</h3>
-    <p>Pix, cartão ou boleto. Pix e cartão liberam o arquivo em segundos; boleto leva até 3 dias úteis para compensar.</p>
-  </article>
-  <article class="lp-passo lp-revela" style="--i:2">
-    <p class="lp-passo__numero">3</p>
-    <h3>Baixe e use</h3>
-    <p>O link chega no seu e-mail na hora, e o arquivo fica guardado em <a href="/minha-conta/">Minha conta</a> para você baixar de novo sempre que precisar.</p>
-  </article>
-</div>
+<!-- wp:group {"className":"lp-secao","align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull lp-secao"><!-- wp:group {"className":"lp-cartao lp-garantias","layout":{"type":"constrained"}} -->
+<div class="wp-block-group lp-cartao lp-garantias"><!-- wp:html -->
+<ul class="lp-provas lp-revela">
+  <li>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12l5 5L20 6"/></svg>
+    <span><strong>Entrega na hora</strong> Assim que o pagamento é confirmado</span>
+  </li>
+  <li>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h18v10H3zM3 11h18"/></svg>
+    <span><strong>Pix, cartão ou boleto</strong> Pagamento em ambiente seguro</span>
+  </li>
+  <li>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
+    <span><strong>Baixe quando quiser</strong> Seus arquivos ficam em Minha conta</span>
+  </li>
+</ul>
 <!-- /wp:html --></div>
-<!-- /wp:group --></main>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+</main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
