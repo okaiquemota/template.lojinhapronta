@@ -278,28 +278,38 @@ Mantenha o `[privacy_policy]` — vira o link da página de privacidade.
 
 ---
 
-## Parte 2.11 — Rodapé do tema-pai
+## Parte 2.11 — Rodapé
 
-O Twenty Twenty-Five traz o próprio rodapé escrito, e ele viaja para toda loja
-entregue.
+O rodapé **vem do tema filho**, em `parts/footer.html`. Não se monta clicando.
 
-- [ ] **Aparência → Editor → Padrões → Partes de modelo → Rodapé**
-- [ ] Trocar **"Twenty Twenty-Five"** pelo nome do site
-- [ ] Remover **"Designed with WordPress"**
-- [ ] **Linkar as cinco páginas da Parte 3** (Sobre, Contato, Termos de uso,
-      Política de privacidade, Política de reembolso)
-- [ ] Salvar
+- [ ] Confirmar que a pasta `parts/` está dentro de `wp-content/themes/lojinha-pronta/`
+- [ ] Abrir a loja e conferir: título do site, as duas colunas de links, e a
+      faixa de crédito com o ano corrente por baixo
+- [ ] Clicar nos sete links e conferir que nenhum dá 404
 
-> O link das páginas jurídicas é parte do mesmo passo de propósito: sem ele,
-> elas ficam publicadas e inalcançáveis. A compradora só as encontra pelo
-> rodapé, e é lá que o Procon espera achar.
-
-> Sem isso, a loja da sua cliente exibe no rodapé o nome de um tema que ela não
-> conhece. Não quebra nada, mas é a diferença entre loja feita e loja montada.
+> **O rodapé do Twenty Twenty-Five é uma armadilha.** Ele traz oito links do
+> site de demonstração do tema — Blog, Sobre, Perguntas frequentes, Autores,
+> Eventos, Loja, Padrões, Temas — e sete apontam para páginas que não existem.
+> Entregar assim é entregar sete links quebrados.
 >
-> O crédito "Loja criada por Lojinha Pronta" **não fica aqui** — ele é gerado
-> pelo tema, fora do rodapé editável, justamente para que nem a cliente nem você
-> apaguem sem querer.
+> Consertar isso no editor salvaria a correção **no banco**, e o banco viaja
+> dentro do `.wpress`. Funcionaria uma vez. Toda correção futura viraria "abrir
+> cada loja entregue e consertar de novo" — o mesmo motivo que tirou o botão de
+> WhatsApp e o Analytics de dentro de plugin.
+>
+> Os endereços em `parts/footer.html` são **relativos** (`/loja/`,
+> `/termos-de-uso/`): funcionam em qualquer domínio, sem editar nada por
+> cliente. Por isso os slugs da Parte 2.12 e da Parte 3 não são negociáveis.
+>
+> **Se o rodapé antigo continuar aparecendo**, alguém salvou uma versão no
+> editor e o banco está ganhando do arquivo. Vá em **Aparência → Editor →
+> Padrões → Partes de modelo → Rodapé**, menu **⋮**, e clique em
+> **"Limpar personalizações"**.
+>
+> O crédito "Loja criada por Lojinha Pronta" e o `© ano nome-da-loja` **não
+> estão nesse arquivo**: saem do `functions.php`, no `wp_footer`, fora do
+> rodapé editável. O ano é calculado em PHP de propósito — escrito à mão, toda
+> loja entregue amanhece em 1º de janeiro exibindo o ano passado.
 
 ---
 

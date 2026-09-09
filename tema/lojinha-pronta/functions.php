@@ -94,13 +94,19 @@ function lojinha_pronta_rodape() {
         <?php
     }
 
-    if (lojinha_pronta_config('creditos', true)) {
-        ?>
+    /*
+     * A linha de copyright sai daqui, e não do rodapé em blocos, porque o ano
+     * precisa virar sozinho: escrito à mão, toda loja entregue amanhece em 1º
+     * de janeiro dizendo o ano passado.
+     */
+    ?>
 <p class="lp-credito">
+  <span>&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php echo esc_html(get_bloginfo('name')); ?></span>
+    <?php if (lojinha_pronta_config('creditos', true)) : ?>
   <a href="https://lojinhapronta.com.br" target="_blank" rel="noopener">Loja criada por Lojinha Pronta</a>
+    <?php endif; ?>
 </p>
-        <?php
-    }
+    <?php
 }
 add_action('wp_footer', 'lojinha_pronta_rodape');
 
@@ -116,9 +122,11 @@ function lojinha_pronta_css_rodape() {
   width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;
   box-shadow:0 6px 20px rgba(0,0,0,.25);transition:transform .3s ease}
 .lp-zap:hover,.lp-zap:focus-visible{transform:scale(1.08);color:#fff}
-.lp-credito{margin:0;padding:1.25rem 1rem;text-align:center;font-size:.8rem;line-height:1.5;
+.lp-credito{margin:0;padding:1.25rem 1rem;font-size:.8rem;line-height:1.5;
+  display:flex;flex-wrap:wrap;gap:.25rem .75rem;justify-content:center;align-items:center;
   background:var(--wp--preset--color--lp-suave,#f4f4f4)}
 .lp-credito a{color:inherit;opacity:.75;text-decoration:none}
+.lp-credito a::before{content:"\00b7";margin-right:.75rem;opacity:.6}
 .lp-credito a:hover{opacity:1;text-decoration:underline}
 @media (max-width:781px){.lp-credito{padding-bottom:5.5rem}}
 @media (prefers-reduced-motion:reduce){.lp-zap{transition:none}}';
