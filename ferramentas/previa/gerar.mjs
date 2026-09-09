@@ -59,8 +59,10 @@ a{color:${cor['lp-marca']}}
 .has-lp-suave-color{color:${cor['lp-suave']} !important}
 .has-lp-marca-escura-background-color{background-color:${cor['lp-marca-escura']} !important}
 .wp-site-blocks{padding-left:var(--wp--style--root--padding-left);padding-right:var(--wp--style--root--padding-right)}
-/* layout "constrained": é assim que o WordPress limita a largura dos filhos */
-.wp-container > *{max-width:${tj.settings.layout.wideSize};margin-left:auto;margin-right:auto}
+/* layout "constrained": o WordPress limita os filhos ao contentSize, não ao
+   wideSize. Imitar isso errado escondeu um recuo de 134px dentro dos cartões
+   que só apareceu na loja de verdade. */
+.wp-container > *{max-width:${tj.settings.layout.contentSize};margin-left:auto;margin-right:auto}
 /* e é assim que ele trata largura total — especificidade 0,2,0 */
 .wp-container > .alignfull{max-width:none;width:auto;
   margin-left:calc(var(--wp--style--root--padding-left) * -1);

@@ -30,7 +30,9 @@ a{color:#124559}
 .has-lp-suave-color{color:#f4f2ef !important}
 .has-lp-marca-escura-background-color{background-color:#0a2531 !important}
 .wp-site-blocks{padding-left:var(--wp--style--root--padding-left);padding-right:var(--wp--style--root--padding-right)}
-/* layout "constrained": é assim que o WordPress limita a largura dos filhos */
+/* layout "constrained": o WordPress limita os filhos ao contentSize, não ao
+   wideSize. Imitar isso errado escondeu um recuo de 134px dentro dos cartões
+   que só apareceu na loja de verdade. */
 .wp-container > *{max-width:1200px;margin-left:auto;margin-right:auto}
 /* e é assim que ele trata largura total — especificidade 0,2,0 */
 .wp-container > .alignfull{max-width:none;width:auto;
@@ -67,7 +69,7 @@ a{color:#124559}
   </div>
 </header>
 <main class="wp-block-group alignfull lp-loja wp-container">
-  <div class="woocommerce">
+  <div class="wp-block-group lp-cartao"><div class="woocommerce">
     <nav class="woocommerce-breadcrumb"><a href="#">Início</a> / Loja</nav>
     <h1 class="woocommerce-products-header__title page-title">Loja</h1>
     <p class="woocommerce-result-count">Mostrando 1–8 de 24 resultados</p>
@@ -149,7 +151,7 @@ a{color:#124559}
         <li><a class="next page-numbers" href="#">→</a></li>
       </ul>
     </nav>
-  </div>
+  </div></div>
 </main>
 <footer class="wp-block-group lp-rodape has-lp-suave-color has-lp-marca-escura-background-color wp-container">
   <div class="wp-block-columns">
