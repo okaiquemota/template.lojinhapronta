@@ -49,6 +49,24 @@ economia, é o produto.
 - [ ] Formato de hora: **H:i**
 - [ ] A semana começa em: **domingo**
 
+### 2.1b WordPress · Painel → Atualizações
+
+- [ ] **Atualizar traduções**, se oferecido
+
+> Trocar o idioma do site traduz o WordPress, mas **não** os plugins. Sem este
+> passo o WooCommerce continua em inglês e a cliente recebe um painel pela
+> metade — "Orders", "Customers", "Settings" — que ela não vai saber navegar.
+
+### 2.1c WooCommerce · dispensar o assistente do painel
+
+- [ ] Esconder o bloco **"Welcome to… / 0 out of 6 complete"** pelos três
+      pontinhos (⋮)
+- [ ] Esconder também o bloco **"Things to do next"**
+
+> Esses blocos viajam no clone. A cliente abre o painel dela e encontra uma lista
+> mandando "Set up payments" e "Select your shipping options", sem saber se
+> precisa fazer — e liga para você perguntar. Some uma vez aqui, some em todas.
+
 ### 2.2 WordPress · Configurações → Links permanentes
 
 - [ ] Estrutura: **Nome do post** (`/%postname%/`)
