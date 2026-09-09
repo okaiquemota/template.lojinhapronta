@@ -57,11 +57,13 @@ economia, é o produto.
 > passo o WooCommerce continua em inglês e a cliente recebe um painel pela
 > metade — "Orders", "Customers", "Settings" — que ela não vai saber navegar.
 
-### 2.1c WooCommerce · dispensar o assistente do painel
+### 2.1c WooCommerce · limpar o painel
 
 - [ ] Esconder o bloco **"Welcome to… / 0 out of 6 complete"** pelos três
       pontinhos (⋮)
 - [ ] Esconder também o bloco **"Things to do next"**
+- [ ] **"Não, obrigado"** no anúncio do Jetpack, em "Visão geral das estatísticas"
+- [ ] **Dispensar** os avisos da "Caixa de entrada"
 
 > Esses blocos viajam no clone. A cliente abre o painel dela e encontra uma lista
 > mandando "Set up payments" e "Select your shipping options", sem saber se
@@ -100,19 +102,33 @@ economia, é o produto.
 > Imposto desmarcado é decisão consciente: a cliente vende com CPF ou MEI e não
 > destaca tributo na nota. Ligar isso criaria um campo que ela não sabe preencher.
 
-### 2.6 WooCommerce → Configurações → Produtos → Downloads
+### 2.6 WooCommerce → Configurações → Produtos → **Produtos baixáveis**
 
-Esta seção é o coração da entrega automática. Erre aqui e a loja vende sem
-entregar, ou entrega sem receber.
+Sub-aba dentro de "Produtos", na linha
+`Geral | Estoque | Produtos baixáveis | …`
 
-- [ ] Método de download: **Redirecionamento forçado**
-- [ ] **Conceder acesso ao download após o pagamento** — marcado
-- [ ] Restringir acesso a usuários logados: **desmarcado**
+Esta seção é o coração da entrega automática. Erre aqui e a loja entrega de
+graça, ou entrega sem ter recebido.
 
-> "Após o pagamento" é o item crítico. Sem ele, um pedido de boleto ainda não pago
-> já libera o arquivo — a cliente entrega de graça e só descobre depois.
+- [ ] Método de download de arquivo: **Forçar downloads**
+      *(vem de fábrica em "Redirecionar apenas (inseguro)")*
+- [ ] Permitir redirecionamento como último recurso: **desmarcado**
+- [ ] **Conceder acesso aos produtos baixáveis após o pagamento** — marcado
+      *(costuma já vir marcado — confira mesmo assim)*
+- [ ] O download requer autenticação: **desmarcado**
+- [ ] Anexar string exclusiva ao nome do arquivo: **marcado**
+
+> **O método vem errado de fábrica.** Em "Redirecionar apenas", o WooCommerce
+> manda a compradora para o endereço real do arquivo — que ela copia da barra do
+> navegador e repassa no grupo da escola. O produto da sua cliente *é* o PDF:
+> essa opção é a diferença entre vender e distribuir de graça.
 >
-> "Redirecionamento forçado" impede que alguém compartilhe o link direto do PDF.
+> "Após o pagamento" é o outro crítico. Sem ele, um pedido de boleto ainda não
+> pago já libera o download.
+>
+> O "último recurso" fica desmarcado de propósito: marcado, ele volta em silêncio
+> ao modo inseguro se o download forçado falhar, e ninguém fica sabendo. PDF é
+> arquivo pequeno, não vai falhar.
 
 ### 2.7 WooCommerce → Configurações → Contas e privacidade
 
