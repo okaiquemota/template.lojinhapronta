@@ -47,9 +47,11 @@ Detalhes que o script já resolve:
 - produtos de afiliado (link com `afid=`) são ignorados: a venda precisa
   acontecer no checkout do produtor, e o arquivo não é nosso
 
-> **Ainda não validado num WooCommerce real.** As colunas seguem o formato do
-> exportador do Woo, mas a primeira importação é que confirma. Rodar primeiro
-> num ambiente de teste.
+> **Validado.** Importado com sucesso em WordPress 7.1 + WooCommerce 11.1.0 +
+> PHP 8.2.29: as 18 colunas mapearam sozinhas, nenhuma caiu em "não importar".
+> Os 6 produtos entraram como rascunho, com **Virtual + Downloadable marcados** —
+> a entrega automática funcionando sem plugin — limite de download aplicado, e as
+> imagens baixadas sozinhas a partir da URL pública.
 
 ## `lojas/loja-do-kiwi/`
 
