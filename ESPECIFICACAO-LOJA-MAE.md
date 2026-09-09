@@ -103,6 +103,25 @@ Versões conferidas na loja-mãe: WooCommerce 11.1.0, All-in-One WP Migration
 > aparecer no Google. **Desmarcar faz parte do checklist de entrega** — é o passo
 > que mais se esquece, e a loja da cliente fica invisível por meses.
 
+### 2.3b Página inicial
+
+Nada a configurar: a home vem de `templates/front-page.html`, no tema filho, e
+tem precedência sobre o que estiver em Configurações → Leitura.
+
+- [ ] Abrir a raiz do site e conferir as três faixas: chamada, "Últimos
+      materiais" com produtos, e "Como funciona"
+- [ ] **Conferir com produto cadastrado.** Sem nenhum produto a faixa do meio
+      fica vazia e parece quebrada, mas não está.
+
+> De fábrica o WordPress mostra os últimos posts na home — a loja abria com
+> "Hello world!" no topo. Sair disso pela tela de Leitura exigiria criar uma
+> página por cliente e apontar; pelo tema, funciona sozinho em toda loja.
+>
+> Os produtos entram por `[products]`, que lê o catálogo direto: a cliente
+> cadastra um material e ele aparece na home sem ela editar nada. Nenhum texto
+> da home precisa de troca por cliente — as três faixas são verdadeiras para
+> qualquer loja do nicho.
+
 ### 2.4 WordPress · Configurações → Discussão
 
 - [ ] Desmarcar **"Permitir comentários em novos posts"**

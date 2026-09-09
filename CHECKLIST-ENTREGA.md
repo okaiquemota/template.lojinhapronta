@@ -60,7 +60,7 @@ Sem estes seis, não comece — cada um vira uma ida e volta que estoura o prazo
 
 ## 4. Páginas e textos · ~30 min
 
-- [ ] `[P03]` ✍️ Página inicial com os produtos em destaque
+- [ ] `[P03]` 🏭 Página inicial — conferir que as três faixas carregaram
 - [ ] `[P04]` ✍️ Categorias criadas conforme o briefing
 - [ ] `[P05]` 🏭 Página de produto conferida (descrição, imagens, botão)
 - [ ] `[P07]` ✍️ Página "Sobre" com o texto do briefing — **ou despublicada**
